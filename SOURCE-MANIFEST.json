@@ -20,7 +20,7 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "8a2364788aca5fd05069c32f0714ca844420c83cd8dc461cf15d337a7ebef2c0"
+      "sha256": "0acca9966c105c0eca62d4cb1937a772fe988eba68dde18f5130de24a8f7e1a9"
     },
     {
       "path": ".github/workflows/source-hygiene.yml",
