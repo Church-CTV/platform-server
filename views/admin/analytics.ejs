@@ -1,0 +1,66 @@
+<% currentView = 'analytics'; %>
+
+<div class="flex-between">
+    <h2 style="font-size:20px;font-weight:700;">Analytics</h2>
+</div>
+
+<div class="stat-grid">
+    <div class="stat-card">
+        <div class="stat-value"><%= totalEvents %></div>
+        <div class="stat-label">Total Events</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-value"><%= totalPlays %></div>
+        <div class="stat-label">Content Plays</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-value"><%= totalErrors %></div>
+        <div class="stat-label">Errors</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-value"><%= totalDeepLinks %></div>
+        <div class="stat-label">Deep Links</div>
+    </div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div class="card">
+        <h3>Top Videos by Plays</h3>
+        <% if (topVideos.length > 0) { %>
+            <table>
+                <thead><tr><th>#</th><th>Video</th><th>Plays</th></tr></thead>
+                <tbody>
+                    <% topVideos.forEach(function(v, i) { %>
+                        <tr>
+                            <td><%= i + 1 %></td>
+                            <td><%= v.title || 'Unknown' %></td>
+                            <td><span class="badge badge-green"><%= v.count %></span></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <div class="text-muted" style="text-align:center;padding:24px;">No analytics data yet. Events will appear once Roku clients start sending data.</div>
+        <% } %>
+    </div>
+
+    <div class="card">
+        <h3>Recent Errors</h3>
+        <% if (recentErrors.length > 0) { %>
+            <table>
+                <thead><tr><th>Time</th><th>Type</th><th>Error</th></tr></thead>
+                <tbody>
+                    <% recentErrors.slice(0, 10).forEach(function(e) { %>
+                        <tr>
+                            <td class="text-muted"><%= new Date(e.timestamp).toLocaleString() %></td>
+                            <td><span class="badge badge-red"><%= e.errorType || 'unknown' %></span></td>
+                            <td><%= e.errorMessage || 'No message' %></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <div class="text-muted" style="text-align:center;padding:24px;">No errors recorded.</div>
+        <% } %>
+    </div>
+</div>

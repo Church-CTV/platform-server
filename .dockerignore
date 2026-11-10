@@ -1,0 +1,12 @@
+node_modules
+.git
+.env*
+!.env.example
+data
+output
+uploads
+Videos
+*.db*
+config.json*
+*.log
+coverage

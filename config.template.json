@@ -1,0 +1,99 @@
+{
+    "channel": {
+        "name": "Example Channel",
+        "description": "Sermons, messages, and ministry content from Example Channel.",
+        "language": "en",
+        "copyright": "Copyright 2026 Example Channel. All rights reserved."
+    },
+    "branding": {
+        "colors": {
+            "background": "0x1A1A2E",
+            "surface": "0x16213E",
+            "accent": "0xE8B931",
+            "textPrimary": "0xFFFFFF",
+            "textSecondary": "0xA0A0B0",
+            "focus": "0xE8B931",
+            "error": "0xFF4444"
+        },
+        "images": {
+            "overhangLogo": "",
+            "backgroundImage": "",
+            "iconFocus": ""
+        },
+        "fonts": {
+            "title": "font:BoldSystemFont",
+            "body": "font:MediumSystemFont",
+            "caption": "font:SmallSystemFont",
+            "heading": "font:ExtraBoldSystemFont"
+        },
+        "spacing": {
+            "marginHorizontal": 80,
+            "marginVertical": 40
+        },
+        "animation": {
+            "cardScale": 1.05,
+            "transitionDuration": 0.25
+        }
+    },
+    "features": {
+        "layoutPreference": "leftnav",
+        "search": true,
+        "deepLinking": true,
+        "analytics": true,
+        "crashReporting": true,
+        "overhangLogo": true,
+        "overhangClock": true,
+        "overhangOptions": true
+    },
+    "ui": {
+        "backgroundColor": "0x1A1A2E",
+        "welcome": {
+            "enabled": true,
+            "title": "Loading...",
+            "subtitle": "Please wait"
+        },
+        "error": {
+            "title": "Connection Error",
+            "message": "Unable to load content. Please check your network connection and try again.",
+            "retryLabel": "Retry"
+        },
+        "loading": {
+            "message": "Loading..."
+        }
+    },
+    "cardStyle": {
+        "showTitle": false,
+        "showDescription": false,
+        "titleFont": "font:SmallBoldSystemFont",
+        "descriptionFont": "font:SmallSystemFont",
+        "titleColor": "0xFFFFFF",
+        "descriptionColor": "0xA0A0B0",
+        "titleNumLines": 1,
+        "descriptionNumLines": 1,
+        "showDetailTitle": true,
+        "showDetailDescription": true,
+        "detailTitleFont": "font:SmallBoldSystemFont",
+        "detailDescriptionFont": "font:SmallSystemFont",
+        "detailTitleColor": "0xFFFFFF",
+        "detailDescriptionColor": "0xA0A0B0",
+        "detailTitleNumLines": 1,
+        "detailDescriptionNumLines": 3
+    },
+    "content": {
+        "sourceUrl": "",
+        "userAgent": "Roku/14.1.0",
+        "maxRows": 20,
+        "maxItemsPerRow": 12,
+        "retryAttempts": 3,
+        "retryDelayMs": 2000,
+        "fetchTimeout": 30,
+        "sslCertificates": "common:/certs/ca-bundle.crt"
+    },
+    "analytics": {
+        "enabled": true,
+        "exportUrl": "/analytics",
+        "exportIntervalSeconds": 300,
+        "maxEventsPerBatch": 50,
+        "flushOnError": true
+    }
+}

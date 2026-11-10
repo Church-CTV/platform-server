@@ -1,0 +1,63 @@
+<% currentView = 'feed'; %>
+
+<div class="flex-between">
+    <h2 style="font-size:20px;font-weight:700;">Feed Management</h2>
+    <form action="/admin/feed/regenerate" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <button type="submit" class="btn btn-primary">🔄 Regenerate Feed</button>
+    </form>
+</div>
+
+<div class="stat-grid">
+    <div class="stat-card">
+        <div class="stat-value"><%= videoCount %></div>
+        <div class="stat-label">Video Count</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-value"><%= monthCount %></div>
+        <div class="stat-label">Months</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-value" style="font-size:16px;"><%= config ? (config.channel.name || 'N/A') : 'N/A' %></div>
+        <div class="stat-label">Channel</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-value">
+            <% var badge = freshness.status === 'fresh' ? 'badge-green' : 'badge-red'; %>
+            <% var label = freshness.status === 'fresh' ? 'Active' : (freshness.status === 'missing' ? 'No published feed' : ('Stale' + (freshness.ageDays === null ? ' (age unknown)' : ' (' + freshness.ageDays + ' days)'))); %>
+            <span class="badge <%= badge %>" data-feed-status="<%= freshness.status %>"><%= label %></span>
+        </div>
+        <div class="stat-label">Status</div>
+    </div>
+</div>
+
+<div class="card">
+    <h3>Feed Details</h3>
+    <table>
+        <tr><td style="color:var(--text-muted);width:160px;">Last Updated</td><td><%= feed.lastUpdated ? new Date(feed.lastUpdated).toLocaleString() : 'Never' %></td></tr>
+        <tr><td style="color:var(--text-muted);">Age</td><td><%= freshness.ageDays === null ? 'unknown' : freshness.ageDays + ' day(s)' %> - considered stale past <%= freshness.thresholdDays %> day(s); measured from <%= freshness.source || 'nothing usable' %><% if (freshness.reason) { %> (<%= freshness.reason %>)<% } %></td></tr>
+        <tr><td style="color:var(--text-muted);">Language</td><td><%= feed.language || 'en' %></td></tr>
+    </table>
+</div>
+
+<div class="card">
+    <h3>Feed Preview (first 3 months)</h3>
+    <% var shown = 0; %>
+    <% Object.keys(feed).filter(function (key) { return Array.isArray(feed[key]); }).forEach(function(key) { %>
+        <% if (key === 'providerName' || key === 'lastUpdated' || key === 'language' || key === 'config') return; %>
+        <% if (shown >= 3) return; %>
+        <div style="margin-bottom:16px;">
+            <strong><%= key %></strong>
+            <div class="text-muted"><%= feed[key].length %> videos</div>
+            <ul style="margin-top:8px;padding-left:20px;">
+                <% feed[key].slice(0, 5).forEach(function(v) { %>
+                    <li><%= v.title || 'Untitled' %></li>
+                <% }); %>
+                <% if (feed[key].length > 5) { %>
+                    <li class="text-muted">+ <%= feed[key].length - 5 %> more</li>
+                <% } %>
+            </ul>
+        </div>
+        <% shown++; %>
+    <% }); %>
+</div>

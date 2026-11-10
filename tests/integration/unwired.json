@@ -1,0 +1,12 @@
+{
+    "purpose": "Integration tests that exist but are not run by any npm script. A file may sit here only with a measured reason; tests/unit/test-suite-coverage.mjs fails the gate for an unwired file that is not listed, and for a listed file with an empty reason. This is a debt register, not a silence button.",
+    "entries": [
+        {
+            "file": "test-admin-auth-new.mjs",
+            "since": "2026-11-06",
+            "measured": "2026-11-09 23:02: `node --test tests/integration/test-admin-auth-new.mjs` fails 6/6. As written it first threw `ReferenceError: afterEach is not defined` (imported `test, beforeEach` only); with that import fixed every case fails in `beforeEach` on `ReferenceError: loginAttempts is not defined` - the harness references a variable it never declares. It has never been green in this tree and no script has ever run it.",
+            "whyNotWired": "Its subject (admin login, wrong-password rejection, session requirement, rate limiting after 5 failures, logout redirect) is already covered by `tests/unit/test-auth-middleware.mjs`, `tests/integration/test-admin-exposure.mjs` and `tests/integration/test-dashboard-exposure.mjs`, which run in the gate. Wiring it as-is would turn `npm run test:all` red for every thread sharing this checkout.",
+            "nextStep": "Rewrite against today's admin routes (session + CSRF + rate-limit middleware) or delete the file. Either way the entry goes away; do not leave it here past one more window."
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+services:
+  server:
+    build: .
+    env_file: .env
+    environment:
+      DB_PATH: /app/data/analytics.db
+      CTV_CHANNEL_CONFIG: /app/data/config.json
+      CTV_VIDEOS_DIR: /app/data/videos
+      CTV_IMAGES_DIR: /app/data/images
+      CTV_FEED_OUTPUT_DIR: /app/data/output
+      CTV_UPLOADS_DIR: /app/data/uploads
+      CTV_AUDIT_DIR: /app/data/audit
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - server-data:/app/data
+volumes:
+  server-data:

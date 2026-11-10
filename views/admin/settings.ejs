@@ -1,0 +1,45 @@
+<% currentView = 'settings'; %>
+
+<div class="flex-between">
+    <h2 style="font-size:20px;font-weight:700;">Settings</h2>
+</div>
+
+<div class="card">
+    <h3>Change Password</h3>
+    <% if (!hasPassword) { %>
+        <p class="text-muted" style="margin-bottom:16px;">No password is set. Set a strong password to protect the admin panel.</p>
+    <% } else { %>
+        <p class="text-muted" style="margin-bottom:16px;">Change your admin password. Minimum 8 characters required.</p>
+    <% } %>
+
+    <form action="/admin/settings/password" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+        <div class="form-group">
+            <label for="currentPassword">Current Password</label>
+            <input type="password" id="currentPassword" name="currentPassword" autocomplete="current-password">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="newPassword">New Password</label>
+                <input type="password" id="newPassword" name="newPassword" autocomplete="new-password" minlength="8">
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm New Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="new-password" minlength="8">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update Password</button>
+    </form>
+</div>
+
+<div class="card">
+    <h3>Security Information</h3>
+    <table>
+        <tr><td style="color:var(--text-muted);width:200px;">Password Set</td><td><%- hasPassword ? '<span class="badge badge-green">Yes</span>' : '<span class="badge badge-red">No - set a password!</span>' %></td></tr>
+        <tr><td style="color:var(--text-muted);">LAN Restriction</td><td><%- process.env.ALLOWED_NETWORKS ? '<span class="badge badge-green">Enabled (' + process.env.ALLOWED_NETWORKS.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + ')</span>' : '<span class="badge badge-yellow">Disabled - password only</span>' %></td></tr>
+        <tr><td style="color:var(--text-muted);">Brute-Force Protection</td><td><span class="badge badge-green">Enabled (5 attempts, exponential backoff)</span></td></tr>
+    </table>
+</div>

@@ -1,0 +1,459 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Roku Channel Configuration",
+    "type": "object",
+    "properties": {
+        "version": {
+            "type": "string"
+        },
+        "channel": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "language": {
+                    "type": "string"
+                },
+                "copyright": {
+                    "type": "string"
+                }
+            },
+            "required": ["name"],
+            "additionalProperties": false
+        },
+        "branding": {
+            "type": "object",
+            "properties": {
+                "colors": {
+                    "type": "object",
+                    "properties": {
+                        "background": {
+                            "type": "string"
+                        },
+                        "surface": {
+                            "type": "string"
+                        },
+                        "accent": {
+                            "type": "string"
+                        },
+                        "textPrimary": {
+                            "type": "string"
+                        },
+                        "textSecondary": {
+                            "type": "string"
+                        },
+                        "focus": {
+                            "type": "string"
+                        },
+                        "navFocusBg": {
+                            "type": "string"
+                        },
+                        "error": {
+                            "type": "string"
+                        },
+                        "live": {
+                            "type": "string"
+                        },
+                        "success": {
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "images": {
+                    "type": "object",
+                    "properties": {
+                        "overhangLogo": {
+                            "type": "string"
+                        },
+                        "backgroundImage": {
+                            "type": "string"
+                        },
+                        "iconFocus": {
+                            "type": "string"
+                        },
+                        "liveStreamThumbnail": {
+                            "type": "string"
+                        },
+                        "liveStreamUrl": {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "fonts": {
+                    "type": "object",
+                    "properties": {
+                        "title": {
+                            "type": "string"
+                        },
+                        "body": {
+                            "type": "string"
+                        },
+                        "caption": {
+                            "type": "string"
+                        },
+                        "heading": {
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "spacing": {
+                    "type": "object",
+                    "properties": {
+                        "marginHorizontal": {
+                            "type": "integer"
+                        },
+                        "marginVertical": {
+                            "type": "integer"
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "animation": {
+                    "type": "object",
+                    "properties": {
+                        "cardScale": {
+                            "type": "number"
+                        },
+                        "transitionDuration": {
+                            "type": "number"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false
+        },
+        "content": {
+            "type": "object",
+            "properties": {
+                "sourceUrl": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "userAgent": {
+                    "type": "string"
+                },
+                "maxRows": {
+                    "type": "integer"
+                },
+                "maxItemsPerRow": {
+                    "type": "integer"
+                },
+                "retryAttempts": {
+                    "type": "integer"
+                },
+                "retryDelayMs": {
+                    "type": "integer"
+                },
+                "fetchTimeout": {
+                    "type": "integer"
+                },
+                "sslCertificates": {
+                    "type": "string"
+                }
+            },
+            "required": ["sourceUrl"],
+            "additionalProperties": false
+        },
+        "features": {
+            "type": "object",
+            "properties": {
+                "layoutPreference": {
+                    "type": "string",
+                    "enum": ["grid", "leftnav", "list", "pagebased", "videoplayer", "category", "hybrid", "topnav"]
+                },
+                "search": {
+                    "type": "boolean"
+                },
+                "deepLinking": {
+                    "type": "boolean"
+                },
+                "analytics": {
+                    "type": "boolean"
+                },
+                "crashReporting": {
+                    "type": "boolean"
+                },
+                "overhangLogo": {
+                    "type": "boolean"
+                },
+                "overhangClock": {
+                    "type": "boolean"
+                },
+                "overhangOptions": {
+                    "type": "boolean"
+                },
+                "liveService": {
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false
+        },
+        "ui": {
+            "type": "object",
+            "properties": {
+                "backgroundColor": {
+                    "type": "string"
+                },
+                "welcome": {
+                    "type": "object",
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "title": {
+                            "type": "string"
+                        },
+                        "subtitle": {
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "error": {
+                    "type": "object",
+                    "properties": {
+                        "title": {
+                            "type": "string"
+                        },
+                        "message": {
+                            "type": "string"
+                        },
+                        "retryLabel": {
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "loading": {
+                    "type": "object",
+                    "properties": {
+                        "message": {
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false
+        },
+        "analytics": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "exportUrl": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "exportIntervalSeconds": {
+                    "type": "integer"
+                },
+                "maxEventsPerBatch": {
+                    "type": "integer"
+                },
+                "flushOnError": {
+                    "type": "boolean"
+                },
+                "playbackSampleSeconds": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 60
+                }
+            },
+            "additionalProperties": false
+        },
+        "cardStyle": {
+            "type": "object",
+            "properties": {
+                "showTitle": {
+                    "type": "boolean"
+                },
+                "showDescription": {
+                    "type": "boolean"
+                },
+                "titleFont": {
+                    "type": "string"
+                },
+                "descriptionFont": {
+                    "type": "string"
+                },
+                "titleColor": {
+                    "type": "string"
+                },
+                "descriptionColor": {
+                    "type": "string"
+                },
+                "titleNumLines": {
+                    "type": "integer"
+                },
+                "descriptionNumLines": {
+                    "type": "integer"
+                },
+                "showDetailTitle": {
+                    "type": "boolean"
+                },
+                "showDetailDescription": {
+                    "type": "boolean"
+                },
+                "detailTitleFont": {
+                    "type": "string"
+                },
+                "detailDescriptionFont": {
+                    "type": "string"
+                },
+                "detailTitleColor": {
+                    "type": "string"
+                },
+                "detailDescriptionColor": {
+                    "type": "string"
+                },
+                "detailTitleNumLines": {
+                    "type": "integer"
+                },
+                "detailDescriptionNumLines": {
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": false
+        },
+        "server": {
+            "type": "object",
+            "properties": {
+                "baseUrl": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "timeout": {
+                    "type": "integer"
+                },
+                "configRefreshSeconds": {
+                    "type": "integer",
+                    "minimum": 5
+                },
+                "allowedOrigins": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "uri"
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+        "navItems": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "label": {
+                        "type": "string"
+                    },
+                    "icon": {
+                        "type": "string"
+                    },
+                    "page": {
+                        "type": "string"
+                    },
+                    "visible": {
+                        "type": "boolean"
+                    },
+                    "order": {
+                        "type": "integer"
+                    }
+                },
+                "required": ["id", "label"],
+                "additionalProperties": false
+            }
+        },
+        "pageRegistry": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "component": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "requiresAuth": {
+                        "type": "boolean"
+                    }
+                },
+                "required": ["component"],
+                "additionalProperties": false
+            }
+        },
+        "giving": {
+            "type": "object",
+            "properties": {
+                "donationUrl": {
+                    "type": "string",
+                    "format": "uri"
+                }
+            },
+            "additionalProperties": false
+        },
+        "heartbeat": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "intervalSeconds": {
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "exportUrl": {
+                    "type": "string",
+                    "format": "uri"
+                }
+            },
+            "additionalProperties": false
+        },
+        "cache": {
+            "type": "object",
+            "description": "How long a published document may be reused before the client asks again (`CACHE-3`, `CACHE-6`). Freshness for the HTTP cache, not retry or timeout values (see `content`). 0 means \"store it, always ask\": the client keeps a copy and revalidates every time, which costs one comparison at the origin and ships zero bytes when nothing changed. A tenant sets a positive number when polling itself - not the byte transfer - is the expense, and accepts that a viewer may then see content up to that many seconds late. The server clamps rather than trusting: a typo must not put a live channel on a 30-day stale feed.",
+            "additionalProperties": false,
+            "properties": {
+                "feedMaxAgeSeconds": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 3600,
+                    "description": "`Cache-Control: max-age` for `/feed` and `/api/v2/feed`. 0 (default) = always revalidate."
+                },
+                "feedStaleWhileRevalidateSeconds": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 600,
+                    "description": "How long a stale copy may be served while the client refreshes in the background. Meaningful only when `feedMaxAgeSeconds` is positive."
+                },
+                "revalidateOnWake": {
+                    "type": "boolean",
+                    "description": "Whether a client that was suspended (a TV that slept, an app backgrounded) must revalidate before rendering what it kept. Default true: the living-room screen should show what the channel published, not what it remembered."
+                },
+                "retentionDays": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 365,
+                    "description": "How long a client may keep a copy for offline/startup rendering before treating it as gone. Advisory to the client; it never extends `feedMaxAgeSeconds` for what is rendered fresh."
+                }
+            }
+        }
+    },
+    "required": ["channel", "content"],
+    "additionalProperties": false
+}

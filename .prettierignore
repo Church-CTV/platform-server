@@ -1,0 +1,11 @@
+# Formatting scope. These trees are history-only mirrors of other repositories (the imported edge and
+# observability originals under ops/, the Python relay service under services/) and generated/runtime data;
+# prettier rewriting them would invent a diff nobody owns and, in one imported record, cannot even parse.
+# The product code, schemas and tests in this repository are formatted and checked by `npm run lint:all`.
+node_modules/
+output/
+Videos/
+uploads/
+coverage/
+ops/
+services/

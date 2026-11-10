@@ -1,0 +1,59 @@
+{
+    "name": "ctv-platform-server",
+    "version": "1.0.0",
+    "engines": {
+        "node": ">=22.12"
+    },
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "test": "node --test --test-concurrency=1 tests/unit/*.mjs",
+        "test:all": "npm test && npm run test:client && npm run test:integration:isolated",
+        "test:client": "node tests/integration/test-client-contract.mjs",
+        "test:admin-auth": "node --test --test-concurrency=1 tests/integration/test-dashboard-exposure.mjs tests/integration/test-credential-warning.mjs",
+        "start": "node server.js",
+        "lint": "eslint . --ignore-pattern node_modules --ignore-pattern output --ignore-pattern Videos --ignore-pattern uploads --ignore-pattern coverage",
+        "format": "prettier --write \"**/*.{js,mjs,json,md}\"",
+        "format:check": "prettier --check \"**/*.{js,mjs,json,md}\"",
+        "format:fix": "prettier --write \"**/*.{js,mjs,json,md}\"",
+        "lint:all": "npm run lint && npm run format:check",
+        "prepare": "husky",
+        "test:v2": "node --test tests/integration/test-v2-contract.mjs",
+        "test:integration:isolated": "node --test --test-concurrency=1 tests/integration/test-config-save-loop.mjs tests/integration/test-admin-exposure.mjs tests/integration/test-admin-upload.mjs tests/integration/test-admin-feed-regenerate.mjs tests/integration/test-admin-auth.mjs tests/integration/test-admin-pages.mjs tests/integration/test-admin-proxy-trust.mjs tests/integration/test-admin-config-form.mjs tests/integration/test-dashboard-exposure.mjs tests/integration/test-credential-warning.mjs tests/integration/test-cache-surface.mjs tests/integration/test-cache-org-isolation.mjs tests/integration/test-published-surface.mjs tests/integration/test-billing-surface.mjs",
+        "test:cache": "node --test --test-concurrency=1 tests/integration/test-cache-surface.mjs tests/integration/test-cache-org-isolation.mjs"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@opentelemetry/api": "^1.10.0",
+        "@opentelemetry/exporter-logs-otlp-http": "^0.301.1",
+        "@opentelemetry/exporter-metrics-otlp-http": "^0.301.1",
+        "@opentelemetry/exporter-trace-otlp-http": "^0.301.1",
+        "@opentelemetry/instrumentation-http": "^0.301.1",
+        "@opentelemetry/resources": "^3.1.1",
+        "@opentelemetry/sdk-logs": "^3.1.1",
+        "@opentelemetry/sdk-metrics": "^3.1.1",
+        "@opentelemetry/sdk-node": "^0.301.1",
+        "ajv": "^6.12.6",
+        "bcryptjs": "^3.0.3",
+        "better-sqlite3": "^11.0.0",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "ejs": "^6.0.1",
+        "express": "^4.21.1",
+        "express-session": "^1.19.0",
+        "file-type": "^22.0.1",
+        "fluent-ffmpeg": "^2.1.3",
+        "fs-extra": "^11.2.0",
+        "helmet": "^8.0.0",
+        "multer": "^2.1.1"
+    },
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "eslint": "^10.4.1",
+        "globals": "^17.6.0",
+        "husky": "^9.1.7",
+        "prettier": "^3.8.4"
+    }
+}

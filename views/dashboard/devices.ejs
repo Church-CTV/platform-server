@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devices - Analytics Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f0f23; color: #e0e0e0; }
+        .navbar { background: #1a1a3e; padding: 16px 24px; display: flex; align-items: center; gap: 24px; border-bottom: 1px solid #2a2a5e; }
+        .navbar h1 { font-size: 20px; color: #e8b931; }
+        .navbar nav a { color: #a0a0b0; text-decoration: none; padding: 8px 16px; border-radius: 6px; transition: all 0.2s; }
+        .navbar nav a:hover, .navbar nav a.active { background: #2a2a5e; color: #e8b931; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 24px; }
+        .table-container { background: #1a1a3e; border-radius: 12px; border: 1px solid #2a2a5e; overflow: hidden; }
+        .table-header { padding: 16px 20px; border-bottom: 1px solid #2a2a5e; display: flex; justify-content: space-between; align-items: center; }
+        .table-header h3 { font-size: 14px; color: #a0a0b0; text-transform: uppercase; letter-spacing: 1px; }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #12122e; padding: 12px 16px; text-align: left; font-size: 12px; color: #a0a0b0; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #2a2a5e; }
+        td { padding: 12px 16px; border-bottom: 1px solid #1a1a3e; font-size: 13px; }
+        tr:hover td { background: #1e1e4a; }
+        .error-msg { background: #2a1a1a; border: 1px solid #4a2a2a; color: #f87171; padding: 16px 20px; border-radius: 12px; margin-bottom: 24px; }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Analytics</h1>
+        <nav>
+            <a href="/">Overview</a>
+            <a href="/events">Events</a>
+            <a href="/devices" class="active">Devices</a>
+        </nav>
+    </div>
+    <div class="container">
+        <% if (typeof error !== 'undefined' && error) { %>
+            <div class="error-msg"><%= error %></div>
+        <% } %>
+        <div class="table-container">
+            <div class="table-header">
+                <h3>Devices</h3>
+                <div style="display:flex;gap:8px;align-items:center">
+                    <label style="color:#a0a0b0;font-size:13px">Show last:</label>
+                    <select id="activeDaysFilter" onchange="applyDaysFilter()">
+                        <option value="1" <%= activeDays === 1 ? 'selected' : '' %>>24 hours</option>
+                        <option value="7" <%= activeDays === 7 ? 'selected' : '' %>>7 days</option>
+                        <option value="30" <%= activeDays === 30 ? 'selected' : '' %>>30 days</option>
+                        <option value="all" <%= activeDays === 'all' ? 'selected' : '' %>>All time</option>
+                    </select>
+                </div>
+            </div>
+            <div style="overflow-x:auto">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Device ID</th>
+                            <th>Channel</th>
+                            <th>App Version</th>
+                            <th>First Seen</th>
+                            <th>Last Seen</th>
+                            <th>Events</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (devices.length === 0) { %>
+                            <tr><td colspan="6" style="text-align:center;color:#a0a0b0;padding:32px">No devices found</td></tr>
+                        <% } %>
+                        <% devices.forEach(d => { %>
+                            <tr>
+                                <td style="font-family:monospace;font-size:12px;color:#e8b931">
+                                    <a href="/events?deviceId=<%= encodeURIComponent(d.id) %>"><%= d.id || 'N/A' %></a>
+                                </td>
+                                <td style="font-size:13px"><%= d.channel_name || 'N/A' %></td>
+                                <td style="font-size:13px;color:#a0a0b0"><%= d.app_version || 'N/A' %></td>
+                                <td style="font-size:12px;color:#a0a0b0"><%= d.first_seen ? new Date(d.first_seen).toLocaleString() : 'N/A' %></td>
+                                <td style="font-size:12px;color:#a0a0b0"><%= d.last_seen ? new Date(d.last_seen).toLocaleString() : 'N/A' %></td>
+                                <td style="font-size:13px;color:#e8b931"><%= d.event_count %></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <script>
+        function applyDaysFilter() {
+            const days = document.getElementById('activeDaysFilter').value;
+            window.location.href = '/devices?activeDays=' + days;
+        }
+        </script>
+    </div>
+</body>
+</html>

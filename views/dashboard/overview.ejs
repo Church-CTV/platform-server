@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f0f23; color: #e0e0e0; }
+        .navbar { background: #1a1a3e; padding: 16px 24px; display: flex; align-items: center; gap: 24px; border-bottom: 1px solid #2a2a5e; }
+        .navbar h1 { font-size: 20px; color: #e8b931; }
+        .navbar nav a { color: #a0a0b0; text-decoration: none; padding: 8px 16px; border-radius: 6px; transition: all 0.2s; }
+        .navbar nav a:hover, .navbar nav a.active { background: #2a2a5e; color: #e8b931; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 24px; }
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .card { background: #1a1a3e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a5e; }
+        .card-label { font-size: 12px; color: #a0a0b0; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .card-value { font-size: 32px; font-weight: 700; color: #ffffff; }
+        .card-value.error-rate { color: #ff6b6b; }
+        .charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .chart-container { background: #1a1a3e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a5e; }
+        .chart-container h3 { font-size: 14px; color: #a0a0b0; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+        .chart-canvas { position: relative; max-height: 300px; }
+        .top-list { list-style: none; }
+        .top-list li { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #1a1a3e; font-size: 13px; }
+        .top-list li:last-child { border-bottom: none; }
+        .top-list .count { color: #e8b931; font-weight: 600; }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+        .error-msg { background: #2a1a1a; border: 1px solid #4a2a2a; color: #f87171; padding: 16px 20px; border-radius: 12px; margin-bottom: 24px; }
+        @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } .charts { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Analytics</h1>
+        <nav>
+            <a href="/" class="active">Overview</a>
+            <a href="/events">Events</a>
+            <a href="/devices">Devices</a>
+        </nav>
+    </div>
+    <div class="container">
+        <% if (typeof error !== 'undefined' && error) { %>
+            <div class="error-msg"><%= error %></div>
+        <% } %>
+        <div class="cards">
+            <div class="card">
+                <div class="card-label">Events Today</div>
+                <div class="card-value"><%= eventsToday %></div>
+            </div>
+            <div class="card">
+                <div class="card-label">Active Devices</div>
+                <div class="card-value"><%= activeDevices %></div>
+            </div>
+            <div class="card">
+                <div class="card-label">Error Rate (24h)</div>
+                <div class="card-value error-rate"><%= errorRate %>%</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Most Viewed Screen</div>
+                <div class="card-value" style="font-size:20px"><%= mostViewedScreen || 'N/A' %></div>
+            </div>
+        </div>
+
+        <div class="charts">
+            <div class="chart-container">
+                <h3>Events Over Time</h3>
+                <div class="chart-canvas">
+                    <canvas id="eventsOverTimeChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-container">
+                <h3>Event Type Distribution</h3>
+                <div class="chart-canvas">
+                    <canvas id="eventTypeChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="two-col">
+            <div class="chart-container">
+                <h3>Top Screens Viewed</h3>
+                <ul class="top-list" id="topScreens"></ul>
+            </div>
+            <div class="chart-container">
+                <h3>Top Content Played</h3>
+                <ul class="top-list" id="topContent"></ul>
+            </div>
+        </div>
+
+        <div class="chart-container" style="margin-bottom:24px">
+            <h3>Error Breakdown</h3>
+            <ul class="top-list" id="errorBreakdown"></ul>
+        </div>
+
+        <script>
+        const statsUrl = '/api/v1/analytics/stats?period=7d&groupBy=day';
+
+        async function loadStats() {
+            try {
+                const res = await fetch(statsUrl);
+                const stats = await res.json();
+
+                const timeCtx = document.getElementById('eventsOverTimeChart').getContext('2d');
+                new Chart(timeCtx, {
+                    type: 'line',
+                    data: {
+                        labels: stats.eventsOverTime.map(e => e.period),
+                        datasets: [{
+                            label: 'Events',
+                            data: stats.eventsOverTime.map(e => e.count),
+                            borderColor: '#e8b931',
+                            backgroundColor: 'rgba(232, 185, 49, 0.1)',
+                            fill: true,
+                            tension: 0.3,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: {
+                            x: { grid: { color: '#2a2a5e' }, ticks: { color: '#a0a0b0', maxTicksLimit: 10 } },
+                            y: { grid: { color: '#2a2a5e' }, ticks: { color: '#a0a0b0' }, beginAtZero: true },
+                        }
+                    }
+                });
+
+                const typeCtx = document.getElementById('eventTypeChart').getContext('2d');
+                new Chart(typeCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: stats.typeBreakdown.map(t => t.event_type.replace('_', ' ')),
+                        datasets: [{
+                            data: stats.typeBreakdown.map(t => t.count),
+                            backgroundColor: ['#60a5fa', '#4ade80', '#a78bfa', '#f87171', '#fbbf24', '#67e8f9'],
+                            borderWidth: 0,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { position: 'bottom', labels: { color: '#a0a0b0', padding: 12 } }
+                        }
+                    }
+                });
+
+                const screensEl = document.getElementById('topScreens');
+                if (stats.topScreens && stats.topScreens.length > 0) {
+                    stats.topScreens.slice(0, 10).forEach(s => {
+                        const name = s.screenName || s.screen_name || s.previousScreen || s.contentTitle || s.content_id || 'Unknown';
+                        const li = document.createElement('li');
+                        const nameSpan = document.createElement('span');
+                        nameSpan.textContent = name;
+                        const countSpan = document.createElement('span');
+                        countSpan.className = 'count';
+                        countSpan.textContent = s.count;
+                        li.appendChild(nameSpan);
+                        li.appendChild(countSpan);
+                        screensEl.appendChild(li);
+                    });
+                } else {
+                    screensEl.innerHTML = '<li><span>No data</span></li>';
+                }
+
+                const contentEl = document.getElementById('topContent');
+                if (stats.topContent && stats.topContent.length > 0) {
+                    stats.topContent.slice(0, 10).forEach(c => {
+                        const name = c.contentTitle || c.content_title || c.contentId || c.content_id || 'Unknown';
+                        const li = document.createElement('li');
+                        const nameSpan = document.createElement('span');
+                        nameSpan.textContent = name;
+                        const countSpan = document.createElement('span');
+                        countSpan.className = 'count';
+                        countSpan.textContent = c.count;
+                        li.appendChild(nameSpan);
+                        li.appendChild(countSpan);
+                        contentEl.appendChild(li);
+                    });
+                } else {
+                    contentEl.innerHTML = '<li><span>No data</span></li>';
+                }
+
+                const errorEl = document.getElementById('errorBreakdown');
+                if (stats.errorBreakdown && stats.errorBreakdown.length > 0) {
+                    stats.errorBreakdown.slice(0, 10).forEach(e => {
+                        const type = e.errorType || e.error_type || e.context || 'Unknown';
+                        const li = document.createElement('li');
+                        const typeSpan = document.createElement('span');
+                        typeSpan.textContent = type;
+                        const countSpan = document.createElement('span');
+                        countSpan.className = 'count';
+                        countSpan.textContent = e.count;
+                        li.appendChild(typeSpan);
+                        li.appendChild(countSpan);
+                        errorEl.appendChild(li);
+                    });
+                } else {
+                    errorEl.innerHTML = '<li><span>No errors</span></li>';
+                }
+            } catch (err) {
+                console.error('Failed to load stats:', err);
+            }
+        }
+
+        loadStats();
+        </script>
+    </div>
+</body>
+</html>

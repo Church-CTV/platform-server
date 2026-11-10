@@ -1,0 +1,61 @@
+<% currentView = 'videos'; %>
+
+<div class="flex-between">
+    <div style="display:flex;align-items:center;gap:12px;">
+        <h2 style="font-size:20px;font-weight:700;">Videos</h2>
+        <% if (typeof searchQuery !== 'undefined' && searchQuery) { %>
+            <span class="text-muted">Showing results for "<%= searchQuery %>"</span>
+        <% } %>
+    </div>
+    <a href="/admin/videos/new" class="btn btn-primary">⬆️ Upload Video</a>
+</div>
+
+<!-- Search bar -->
+<div style="margin-bottom:16px;">
+    <form action="/admin/videos" method="GET" style="display:flex;gap:8px;">
+        <input type="text" name="q" value="<%= typeof searchQuery !== 'undefined' ? searchQuery : '' %>" placeholder="Search videos..." style="flex:1;padding:8px 12px;background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius);color:var(--text-primary);font-size:14px;">
+        <button type="submit" class="btn btn-secondary">Search</button>
+        <% if (typeof searchQuery !== 'undefined' && searchQuery) { %>
+            <a href="/admin/videos" class="btn btn-secondary">Clear</a>
+        <% } %>
+    </form>
+</div>
+
+<div class="table-wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Release Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (videos.length > 0) { %>
+                <% videos.forEach(function(video) { %>
+                    <tr>
+                        <td>
+                            <div style="font-weight:500;"><%= video.title || 'Untitled' %></div>
+                            <div class="text-muted" style="font-size:12px;"><%= video.filename %></div>
+                        </td>
+                        <td><span class="badge badge-blue"><%= video.category || 'Uncategorized' %></span></td>
+                        <td class="text-muted"><%= video.releaseDate || 'N/A' %></td>
+                        <td>
+                            <div style="display:flex;gap:8px;">
+                                <a href="/admin/videos/<%= encodeURIComponent(video.filename) %>/edit" class="btn btn-secondary btn-sm">Edit</a>
+                                <button class="btn btn-danger btn-sm btn-delete" data-filename="<%= video.filename %>" data-title="<%= video.title || 'Untitled' %>">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                <% }); %>
+            <% } else { %>
+                <tr>
+                    <td colspan="4" style="text-align:center;padding:40px;color:var(--text-muted);">No videos found. <a href="/admin/videos/new" style="color:var(--accent);">Upload your first video</a>.</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
+
+<p class="text-muted mt-2"><%= videos.length %> total video(s)</p>

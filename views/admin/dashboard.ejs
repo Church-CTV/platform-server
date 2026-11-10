@@ -1,0 +1,70 @@
+<% currentView = 'dashboard'; %>
+
+<div class="stat-grid">
+    <div class="stat-card">
+        <div class="stat-value"><%= videoCount %></div>
+        <div class="stat-label">Total Videos</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-value"><%= monthCount %></div>
+        <div class="stat-label">Months in Feed</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-value"><%= Math.floor(uptime / 3600) %>.<%= Math.floor((uptime % 3600) / 60) %></div>
+        <div class="stat-label">Hours Uptime</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-value"><%= dbSize %></div>
+        <div class="stat-label">DB Size</div>
+    </div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div class="card">
+        <h3>Channel Info</h3>
+        <table>
+            <tr><td style="color:var(--text-muted);width:140px;">Name</td><td><%= config.name || 'N/A' %></td></tr>
+            <tr><td style="color:var(--text-muted);">Description</td><td><%= config.description || 'N/A' %></td></tr>
+            <tr><td style="color:var(--text-muted);">Language</td><td><%= config.language || 'en' %></td></tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h3>System</h3>
+        <table>
+            <% if (diskUsage) { %>
+                <tr><td style="color:var(--text-muted);width:140px;">Disk Used</td><td><%= diskUsage.used %> / <%= diskUsage.total %></td></tr>
+                <tr><td style="color:var(--text-muted);">Available</td><td><%= diskUsage.available %> (<%= diskUsage.usePercent %>)</td></tr>
+            <% } else { %>
+                <tr><td colspan="2" class="text-muted">Disk info unavailable</td></tr>
+            <% } %>
+            <tr><td style="color:var(--text-muted);">Node.js</td><td><%= process.version %></td></tr>
+            <tr><td style="color:var(--text-muted);">Platform</td><td><%= process.platform %> <%= process.arch %></td></tr>
+        </table>
+    </div>
+</div>
+
+<div class="card">
+    <h3>Recent Activity</h3>
+    <% if (recentAudit.length > 0) { %>
+        <table>
+            <thead><tr><th>Time</th><th>Action</th><th>Details</th></tr></thead>
+            <tbody>
+                <% recentAudit.forEach(function(entry) { %>
+                    <tr>
+                        <td class="text-muted"><%= new Date(entry.timestamp).toLocaleString() %></td>
+                        <td><span class="badge badge-blue"><%= entry.action ? String(entry.action) : '' %></span></td>
+                        <td><%= String(JSON.stringify(entry.details).substring(0, 80)) %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <div class="text-muted" style="text-align:center;padding:24px;">No recent activity.</div>
+    <% } %>
+</div>
+
+<div class="flex-between mt-4">
+    <a href="/admin/videos" class="btn btn-primary">Manage Videos</a>
+    <a href="/admin/feed" class="btn btn-secondary">Feed Management</a>
+</div>

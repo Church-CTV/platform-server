@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Analytics Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f0f23; color: #e0e0e0; }
+        .navbar { background: #1a1a3e; padding: 16px 24px; display: flex; align-items: center; gap: 24px; border-bottom: 1px solid #2a2a5e; }
+        .navbar h1 { font-size: 20px; color: #e8b931; }
+        .navbar nav a { color: #a0a0b0; text-decoration: none; padding: 8px 16px; border-radius: 6px; transition: all 0.2s; }
+        .navbar nav a:hover, .navbar nav a.active { background: #2a2a5e; color: #e8b931; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 24px; }
+        .table-container { background: #1a1a3e; border-radius: 12px; border: 1px solid #2a2a5e; overflow: hidden; }
+        .table-header { padding: 16px 20px; border-bottom: 1px solid #2a2a5e; display: flex; justify-content: space-between; align-items: center; }
+        .table-header h3 { font-size: 14px; color: #a0a0b0; text-transform: uppercase; letter-spacing: 1px; }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #12122e; padding: 12px 16px; text-align: left; font-size: 12px; color: #a0a0b0; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #2a2a5e; }
+        td { padding: 12px 16px; border-bottom: 1px solid #1a1a3e; font-size: 13px; }
+        tr:hover td { background: #1e1e4a; }
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+        .badge-screen_view { background: #1a3a5e; color: #60a5fa; }
+        .badge-content_play { background: #1a4a2e; color: #4ade80; }
+        .badge-deep_link { background: #3a2a5e; color: #a78bfa; }
+        .badge-error { background: #4a1a1a; color: #f87171; }
+        .badge-interaction { background: #4a3a1a; color: #fbbf24; }
+        .badge-playback_state { background: #2a3a4a; color: #67e8f9; }
+        .pagination { display: flex; justify-content: center; gap: 8px; padding: 16px; }
+        .pagination a, .pagination span { padding: 8px 12px; border-radius: 6px; text-decoration: none; font-size: 13px; }
+        .pagination a { background: #1a1a3e; color: #a0a0b0; border: 1px solid #2a2a5e; }
+        .pagination a:hover { background: #2a2a5e; color: #e8b931; }
+        .pagination .current { background: #2a2a5e; color: #e8b931; border: 1px solid #3a3a6e; }
+        .filters { display: flex; gap: 12px; padding: 16px 20px; border-bottom: 1px solid #2a2a5e; flex-wrap: wrap; }
+        .filters select, .filters input { background: #12122e; border: 1px solid #2a2a5e; color: #e0e0e0; padding: 8px 12px; border-radius: 6px; font-size: 13px; }
+        .filters input { flex: 1; min-width: 200px; }
+        .filters select { min-width: 150px; }
+        .filters button { background: #e8b931; color: #0f0f23; border: none; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; }
+        .filters button:hover { background: #d4a828; }
+        .payload-json { background: #12122e; padding: 8px 12px; border-radius: 6px; font-family: monospace; font-size: 11px; max-height: 120px; overflow-y: auto; white-space: pre-wrap; word-break: break-all; }
+        .error-msg { background: #2a1a1a; border: 1px solid #4a2a2a; color: #f87171; padding: 16px 20px; border-radius: 12px; margin-bottom: 24px; }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Analytics</h1>
+        <nav>
+            <a href="/">Overview</a>
+            <a href="/events" class="active">Events</a>
+            <a href="/devices">Devices</a>
+        </nav>
+    </div>
+    <div class="container">
+        <% if (typeof error !== 'undefined' && error) { %>
+            <div class="error-msg"><%= error %></div>
+        <% } %>
+        <div class="table-container">
+            <div class="table-header">
+                <h3>Event Browser</h3>
+                <span style="color:#a0a0b0;font-size:13px"><%= total %> total events</span>
+            </div>
+            <div class="filters">
+                <select id="eventTypeFilter">
+                    <option value="">All Types</option>
+                    <% eventTypes.forEach(t => { %>\
+                        <option value="<%= t || '' %>"<% if (selectedEventType === t) { %> selected<% } %>><%= t || '' %></option>
+                    <% }) %>\
+                </select>
+                <input type="text" id="searchInput" placeholder="Search payloads..." value="<%= searchQuery || '' %>">
+                <button onclick="applyFilters()">Filter</button>
+            </div>
+            <div style="overflow-x:auto">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Type</th>
+                            <th>Device</th>
+                            <th>Payload</th>
+                            <th>Session Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (events.length === 0) { %>
+                            <tr><td colspan="5" style="text-align:center;color:#a0a0b0;padding:32px">No events found</td></tr>
+                        <% } %>
+                        <% events.forEach(e => { %>
+                            <tr>
+                                <td style="white-space:nowrap;color:#a0a0b0">
+                                    <%= e.received_at ? new Date(e.received_at).toLocaleString() : 'N/A' %>
+                                </td>
+                                <td><span class="badge badge-<%= e.event_type || 'unknown' %>"><%= e.event_type || 'unknown' %></span></td>
+                                <td style="font-size:12px;color:#a0a0b0">
+                                    <%= e.channel_name || e.device_id || 'N/A' %>
+                                </td>
+                                <td>
+                                    <% if (e.payload) { %>
+                                        <div class="payload-json"><%- e.payload ? e.payload.substring(0, 300) : '' %><% if (e.payload && e.payload.length > 300) { %>...<% } %></div>
+                                    <% } else { %>
+                                        <span style="color:#a0a0b0">-</span>
+                                    <% } %>
+                                </td>
+                                <td style="color:#a0a0b0">
+                                    <%= e.session_duration !== null && e.session_duration !== undefined ? e.session_duration + 's' : '-' %>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+            <% if (total > limit) { %>
+                <div class="pagination">
+                    <%
+                    const totalPages = Math.ceil(total / limit);
+                    const currentPage = Math.floor(offset / limit) + 1;
+                    for (let i = 1; i <= Math.min(totalPages, 10); i++) {
+                        const pageOffset = (i - 1) * limit;
+                        const params = new URLSearchParams({ limit, offset: pageOffset });
+                        if (selectedEventType) params.set('eventType', selectedEventType);
+                        if (selectedDeviceId) params.set('deviceId', selectedDeviceId);
+                        if (searchQuery) params.set('search', searchQuery);
+                        const href = '/events?' + params.toString();
+                        if (i === currentPage) {
+                    %>
+                        <span class="current"><%= i %></span>
+                    <% } else { %>
+                        <a href="<%= href %>"><%= i %></a>
+                    <% } %>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+
+        <script>
+        function applyFilters() {
+            const eventType = document.getElementById('eventTypeFilter').value;
+            const search = document.getElementById('searchInput').value;
+            const params = new URLSearchParams({ limit: <%= limit %>, offset: 0 });
+            if (eventType) params.set('eventType', eventType);
+            if (search) params.set('search', search);
+            window.location.href = '/events?' + params.toString();
+        }
+
+        document.getElementById('searchInput').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') applyFilters();
+        });
+        </script>
+    </div>
+</body>
+</html>

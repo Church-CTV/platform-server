@@ -1,0 +1,40 @@
+<% currentView = 'audit-log'; %>
+
+<div class="flex-between">
+    <h2 style="font-size:20px;font-weight:700;">Audit Log</h2>
+    <% if (entries.length > 0) { %>
+        <form action="/admin/audit-log/clear" method="POST" onsubmit="return confirm('Clear all audit log entries? This cannot be undone.');">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button type="submit" class="btn btn-danger">Clear Log</button>
+        </form>
+    <% } %>
+</div>
+
+<div class="card">
+    <% if (entries.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Action</th>
+                    <th>IP Address</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% entries.forEach(function(entry) { %>
+                    <tr>
+                        <td class="text-muted" style="white-space:nowrap;"><%= new Date(entry.timestamp).toLocaleString() %></td>
+                        <td><span class="badge badge-blue"><%= entry.action || '' %></span></td>
+                        <td class="text-muted" style="font-family:monospace;"><%= entry.ip || 'unknown' %></td>
+                        <td style="max-width:300px;overflow:hidden;text-overflow:ellipsis;" title="<%= String(entry.details ? JSON.stringify(entry.details).substring(0, 100) : '') %>"><%= entry.details ? String(JSON.stringify(entry.details).substring(0, 100)) : '' %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <div class="text-muted" style="text-align:center;padding:40px;">No audit log entries yet. Actions will be logged here as they happen.</div>
+    <% } %>
+</div>
+
+<p class="text-muted mt-2"><%= entries.length %> total entry/entries</p>

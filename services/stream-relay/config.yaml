@@ -1,0 +1,25 @@
+# ctv-server configuration
+
+server:
+  host: "0.0.0.0"
+  port: 8080
+
+hls:
+  directory: "./hls"
+  segment_duration: 4        # seconds per segment
+  target_playlist_type: "event"  # event or live
+
+ingest:
+  rtmp_port: 1935
+  srt_port: 10000
+  ffmpeg_path: "ffmpeg"      # or absolute path
+
+streams:
+  # Pre-registered streams (optional)
+  # church-main:
+  #   ingest:
+  #     protocol: rtmp
+  #     port: 1935
+  #     stream_key: "live"
+  #   hls:
+  #     playlist_name: "church-main.m3u8"

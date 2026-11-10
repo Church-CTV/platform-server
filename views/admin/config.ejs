@@ -1,0 +1,80 @@
+<% currentView = 'config'; %>
+
+<div class="flex-between">
+    <h2 style="font-size:20px;font-weight:700;">Channel Configuration</h2>
+    <button type="submit" form="configForm" class="btn btn-primary">Save Config</button>
+</div>
+
+<div class="card">
+    <form id="configForm" action="/admin/config" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+        <h3 style="margin-bottom:16px;">Channel Info</h3>
+
+        <div class="form-group">
+            <label for="channelName">Channel Name</label>
+            <input type="text" id="channelName" name="channelName" value="<%= config.channel.name || '' %>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="channelDescription">Channel Description</label>
+            <textarea id="channelDescription" name="channelDescription" rows="2" required><%- config.channel.description || '' %></textarea>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="channelLanguage">Language</label>
+                <input type="text" id="channelLanguage" name="channelLanguage" value="<%= config.channel.language || 'en' %>">
+            </div>
+            <div class="form-group">
+                <label for="channelCopyright">Copyright</label>
+                <input type="text" id="channelCopyright" name="channelCopyright" value="<%= config.channel.copyright || '' %>">
+            </div>
+        </div>
+
+        <h3 style="margin:24px 0 16px;">Branding Colors</h3>
+
+        <div class="form-row" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));">
+            <div class="form-group">
+                <label for="colorBackground">Background</label>
+                <div style="display:flex;gap:8px;">
+                    <input type="color" id="colorBackground" name="colorBackground" value="<%= ((config.branding.colors?.background || '#1A1A2E')).replace(/^0x/i,'#') %>" style="width:50px;height:40px;border:none;padding:0;cursor:pointer;">
+                    <input type="text" value="<%= ((config.branding.colors?.background || '#1A1A2E')).replace(/^0x/i,'#') %>" readonly style="flex:1;font-size:13px;">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="colorSurface">Surface</label>
+                <div style="display:flex;gap:8px;">
+                    <input type="color" id="colorSurface" name="colorSurface" value="<%= ((config.branding.colors?.surface || '#16213E')).replace(/^0x/i,'#') %>" style="width:50px;height:40px;border:none;padding:0;cursor:pointer;">
+                    <input type="text" value="<%= ((config.branding.colors?.surface || '#16213E')).replace(/^0x/i,'#') %>" readonly style="flex:1;font-size:13px;">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="colorAccent">Accent</label>
+                <div style="display:flex;gap:8px;">
+                    <input type="color" id="colorAccent" name="colorAccent" value="<%= ((config.branding.colors?.accent || '#E8B931')).replace(/^0x/i,'#') %>" style="width:50px;height:40px;border:none;padding:0;cursor:pointer;">
+                    <input type="text" value="<%= ((config.branding.colors?.accent || '#E8B931')).replace(/^0x/i,'#') %>" readonly style="flex:1;font-size:13px;">
+                </div>
+            </div>
+        </div>
+
+        <h3 style="margin:24px 0 16px;">Images</h3>
+
+        <div class="form-group">
+            <label for="imageOverhangLogo">Overhang Logo URL</label>
+            <input type="text" id="imageOverhangLogo" name="imageOverhangLogo" value="<%= (config.branding.images?.overhangLogo) || '' %>" placeholder="https://...">
+        </div>
+
+        <div class="form-group">
+            <label for="imageBackgroundImage">Background Image URL</label>
+            <input type="text" id="imageBackgroundImage" name="imageBackgroundImage" value="<%= (config.branding.images?.backgroundImage) || '' %>" placeholder="https://...">
+        </div>
+
+        <div class="form-group">
+            <label for="imageIconFocus">Focus Icon URL</label>
+            <input type="text" id="imageIconFocus" name="imageIconFocus" value="<%= (config.branding.images?.iconFocus) || '' %>" placeholder="https://...">
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-4">Save Configuration</button>
+    </form>
+</div>
