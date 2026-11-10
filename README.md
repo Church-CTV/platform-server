@@ -1,5 +1,7 @@
 # CTV platform server
 
+Permissions, commercial licensing, sales and support: see [SUPPORT.md](SUPPORT.md).
+
 Node.js service for a configurable TV channel feed, streaming, analytics and an operator interface. This is a public-source candidate, not a deployment-ready distribution. It does not include media, customer configurations, credentials, store signing material or the original operations and deployment tooling. The separately included Python stream-relay directory is not part of the Node setup below.
 
 ## Local setup

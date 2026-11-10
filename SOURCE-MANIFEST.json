@@ -76,7 +76,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "68e79103983b5bfab1d4858a37f5e1c60991b24901881f5a32ef346328f818f7"
+      "sha256": "3ca9b0a4eaa13a6342cd5529799dc9c3af8b3ecd1085e4559f3a931216de1f82"
     },
     {
       "path": "RELEASE-STATUS.md",
@@ -89,6 +89,10 @@
     {
       "path": "SECURITY.md",
       "sha256": "9e7ba5bae1b572990160c8f1f9c295d466e83288f209288eb7e18d766757ccf3"
+    },
+    {
+      "path": "SUPPORT.md",
+      "sha256": "397056c8ffcab6902272f8221f81d371c107eb308f0e6e8f4a9c7ad672e5b21e"
     },
     {
       "path": "THIRD-PARTY-LICENSES.json",
