@@ -35,12 +35,12 @@ sdk = new NodeSDK({
         }),
         exportIntervalMillis: 15000
     })],
-    logRecordProcessors: [new BatchLogRecordProcessor(
-        new OTLPLogExporter({
+    logRecordProcessors: [new BatchLogRecordProcessor({
+        exporter: new OTLPLogExporter({
             url: `${otlpEndpoint}/v1/logs`,
             concurrencyLimit: 10
         })
-    )],
+    })],
     instrumentations: [new HttpInstrumentation()]
 });
 

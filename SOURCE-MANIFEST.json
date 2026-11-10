@@ -288,7 +288,7 @@
     },
     {
       "path": "server.js",
-      "sha256": "4e483c894c4b138ac37b28f3cbc918989a1d2d5d533e83e9eb62325533d34a42"
+      "sha256": "042548d2724fbc78c779934109b3a39cf7d394e12ac8406e8a39d1c413332cc1"
     },
     {
       "path": "services/stream-relay/.gitignore",
