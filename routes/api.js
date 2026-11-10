@@ -7,6 +7,9 @@ const { getDb, activeSince } = require('../lib/db');
 const { validateBatchPayload, sanitizePayload, validateEvent } = require('../lib/eventValidator');
 const { getRateLimitMiddleware } = require('../middleware/rateLimit');
 const { rateLimitValue } = require('../lib/rateLimits');
+const { createExperimentalBillingGuard } = require('../middleware/experimentalBilling');
+
+router.use(['/checkout', '/subscription', '/webhook/stripe'], createExperimentalBillingGuard());
 
 // Rate limit analytics ingestion (budget + the measurement that sized it: `lib/rateLimits.js`)
 const analyticsRateLimit = getRateLimitMiddleware(rateLimitValue('analytics'), 60000, 'analytics');

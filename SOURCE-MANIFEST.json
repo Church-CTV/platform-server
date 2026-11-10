@@ -12,7 +12,7 @@
     },
     {
       "path": ".env.example",
-      "sha256": "0067886ae35afbd9ce4bfa1b5d96ac12208c563cc7a7a60008138949171be4f2"
+      "sha256": "6da779978d2306f4e59c8522fbe29a7f25328c6786065954fe4c16986a1cfecc"
     },
     {
       "path": ".github/CODEOWNERS",
@@ -28,7 +28,7 @@
     },
     {
       "path": ".gitignore",
-      "sha256": "27b2f8e4708bf307fdef3bd1262342cf1e8850bcbca9e790106d72e05cc6bc69"
+      "sha256": "f1c55d0f72f1d1d732b486200c88e7facffa675213867da68742f8ebef2cc537"
     },
     {
       "path": ".prettierignore",
@@ -48,7 +48,7 @@
     },
     {
       "path": "DEPENDENCY-LICENSE-INVENTORY.json",
-      "sha256": "c9ed9bcdca139b9cc408be67e800d5de806d718da041e1ff284054afc920238c"
+      "sha256": "2ebdbae601cbb50704dc646e527b0a74ea080725dd1f443a1fa620cf54214f3a"
     },
     {
       "path": "Dockerfile",
@@ -76,11 +76,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "654e6293f3dcb6617851937dfd0fbda0b9adeefc101329a229067ba04bb23001"
+      "sha256": "68e79103983b5bfab1d4858a37f5e1c60991b24901881f5a32ef346328f818f7"
     },
     {
       "path": "RELEASE-STATUS.md",
-      "sha256": "04a23be73417fac27d402cc7c73ce76f925c372c1754ad3cab324cfe77f1fd80"
+      "sha256": "5eb0d8f5774b90ed693cb2bd59c0f493d0a18b29f304c1af6c0bdae3530d3f87"
     },
     {
       "path": "RUNTIME-CONFIGURATION.md",
@@ -91,32 +91,16 @@
       "sha256": "9e7ba5bae1b572990160c8f1f9c295d466e83288f209288eb7e18d766757ccf3"
     },
     {
+      "path": "THIRD-PARTY-LICENSES.json",
+      "sha256": "e3febf880b32a698e570b4b1a1b7999547355e3c60acbec02a97fc903981af84"
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.md",
+      "sha256": "928240f5d0f9be0be847314ec585a3ebe5551cb69ddce3a65394a160acc559bc"
+    },
+    {
       "path": "analytics/AnalyticsExport.brs",
       "sha256": "7ab71b1f9a7fd5f77ed1b3bde0a9710e077b2174e0f9da147e3ac86bd4abb538"
-    },
-    {
-      "path": "analytics.db.test_analytics-shm",
-      "sha256": "b48adebdc90f72a0e8beb99c54cef8a97e33493385e29477cf595cb6dcb8a596"
-    },
-    {
-      "path": "analytics.db.test_analytics-wal",
-      "sha256": "2c1f2013bd9efc2c99f698b932ed679296e89c3f7fe84f0d8e9be126a897a503"
-    },
-    {
-      "path": "analytics.db.test_api-shm",
-      "sha256": "ae817830b321d1df1091ca32ba8271248392ff6800b1d12f5126d8f29688234f"
-    },
-    {
-      "path": "analytics.db.test_api-wal",
-      "sha256": "adfdeb8e79b3977e70f456fe4addd270982880e52af2526a0cb2cbf2e1b81213"
-    },
-    {
-      "path": "analytics.db.test_export-shm",
-      "sha256": "32847dde84fbc45c1136cee829f6d5aebc895d7016ae5f3ab897f861ee30ff30"
-    },
-    {
-      "path": "analytics.db.test_export-wal",
-      "sha256": "da5ab2224eef5325f783caa7d04a1cfe9161c6239b117ec68f8898a329d584b8"
     },
     {
       "path": "config.json",
@@ -239,6 +223,10 @@
       "sha256": "397b94b528486cb7e5a7c64dc25a0e414c23f65589f00301e1d48322bdcadf8b"
     },
     {
+      "path": "middleware/experimentalBilling.js",
+      "sha256": "837e0f21ef05e49b74ae52b607d595cd3000d39ae852a5d51f1147f627ae8a02"
+    },
+    {
       "path": "middleware/lanRestrict.js",
       "sha256": "12c178d381b31adbebd232e972675bdbfcab09515ac4ae4d1f3995169715451e"
     },
@@ -248,11 +236,11 @@
     },
     {
       "path": "package-lock.json",
-      "sha256": "d2ccca35ec10042bb49b5e7e46cf8ae39e6ffc892ad3c3c643fac1729ad5905e"
+      "sha256": "7b56a06774d5b0f160a5722bb0dcc3264a56afc2dc6326c355b90d825368954b"
     },
     {
       "path": "package.json",
-      "sha256": "49b7d116cd6f8df38ac3e8c9e2e83a57a02738719d5874d46bb6cec57f98660e"
+      "sha256": "60b8cdd9d00acbef37f1c56a5e8ced5611b16e08b19220d40f0b2cc377a19495"
     },
     {
       "path": "routes/admin.js",
@@ -260,7 +248,7 @@
     },
     {
       "path": "routes/api.js",
-      "sha256": "f8da9df7a981c917893a1f6060b81a128c4fdc0b2a09bb508b11806dfa4ccc7d"
+      "sha256": "2cc02b9d2f1c5ab86fefc9efd212d274d94c73f964b7b4c932610387600c51ac"
     },
     {
       "path": "routes/dashboard.js",
@@ -396,7 +384,7 @@
     },
     {
       "path": "tests/integration/test-billing-surface.mjs",
-      "sha256": "8539c6a48c827355ca4bf2c948949c0bec4b6bd6cad4b2c33466f033e6d47009"
+      "sha256": "68b0bcaf87a531e226c799309ac95ada9f4382fcce8985955ef7ef494d6aeaed"
     },
     {
       "path": "tests/integration/test-cache-org-isolation.mjs",
@@ -501,6 +489,10 @@
     {
       "path": "tests/unit/test-eventValidator.mjs",
       "sha256": "545205d05e0b6e76cc5b700951d620e1625038b049a789be40933c4ee4eb62d1"
+    },
+    {
+      "path": "tests/unit/test-experimental-billing.mjs",
+      "sha256": "73008dcbf8eb4ae2b62320e3ff1614caad15564e1cbcc8a449bf5ad3aa95a2bd"
     },
     {
       "path": "tests/unit/test-feed-envelope-version.mjs",

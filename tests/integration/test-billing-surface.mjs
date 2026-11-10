@@ -128,6 +128,8 @@ before(async () => {
         cwd: ROOT,
         env: {
             ...process.env,
+            NODE_ENV: 'test',
+            ENABLE_EXPERIMENTAL_BILLING: 'true',
             CTV_DISABLE_PROXY_TRUST: '1',
             // `lib/adminAuth.js` keeps its session state in this process, so a stray CTV_ADMIN_API_URL would
             // forward this harness's /admin traffic to somebody else's live instance.

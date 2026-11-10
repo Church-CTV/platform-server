@@ -150,6 +150,12 @@ config.json.*
 videos.json
 videos.json.*
 analytics.db*
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
 Videos/
 Videos.*/
 output/

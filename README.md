@@ -34,7 +34,8 @@ With Docker Compose installed, create `.env` as above, then run `docker compose 
 | `ADMIN_PASSWORD` | Required at startup; initial admin password. Stored hash, when present, takes precedence. |
 | `SESSION_SECRET` | Session signing secret; if omitted, generated at startup and sessions do not survive restart. |
 | `ANALYTICS_API_KEY` | API authentication key; if omitted, generated at startup and changes on restart. |
-| `STRIPE_WEBHOOK_SECRET` | Optional webhook verification secret; never put an actual value in an example or source file. |
+| `STRIPE_WEBHOOK_SECRET` | Isolated experimental billing-test secret only; real payment processing is not supplied. |
+| `ENABLE_EXPERIMENTAL_BILLING` | Defaults off. The stub is accessible only when this is `true` AND `NODE_ENV=test`; production remains blocked even when the flag is set. |
 | `YOUTUBE_API_KEY`, `YOUTUBE_CHANNEL_HANDLE` | Optional metadata lookup; omit the key to avoid YouTube API requests. |
 | `CTV_SERVER_PROFILE` | Optional versioned JSON deployment profile; profile paths must exist. |
 | `CTV_CHANNEL_CONFIG` | Path to the writable operator configuration; defaults to `config.json`. |
@@ -49,4 +50,4 @@ Configuration inputs and schema behavior are implemented in `lib/serverProfile.j
 
 `npm test` runs Node unit tests; `npm run test:client` and `npm run test:integration:isolated` exercise local mock servers. `npm run test:all` runs these in sequence. The isolated tests use local ports and temporary state; do not point overrides at a real server. The old Python feed-generator tooling/tests, customer assets, operational workflows and deployments are omitted. Some integration debt is recorded in `tests/integration/unwired.json`.
 
-The admin pages load fonts from Google Fonts and dashboard pages load Chart.js from jsDelivr; browsers make those requests when displaying those pages. Optional YouTube metadata and explicitly configured telemetry can also reach external services. Billing is a stub: checkout fabricates a URL, subscription status is publicly queryable, and cancellation handling has known identity mismatches. Do not use it for payments or real subscriber data. Third-party packages and external content require dependency, license, privacy and security review. Publication and deployment remain blocked until rights and those reviews are resolved.
+The admin pages load fonts from Google Fonts and dashboard pages load Chart.js from jsDelivr; browsers make those requests when displaying those pages. Optional YouTube metadata and explicitly configured telemetry can also reach external services. Billing remains a nonfunctional payment stub with known identity/privacy defects. Its checkout, subscription and webhook routes return `503 experimental_billing_disabled` outside explicitly opted-in test environments. Do not set production deployments to test mode or supply real subscriber/payment data. Third-party packages and external content require dependency, license, privacy and security review. Publication and deployment remain blocked until rights and those reviews are resolved.
