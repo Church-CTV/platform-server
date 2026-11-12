@@ -1,7 +1,7 @@
 /**
  * The video/thumbnail upload path over real HTTP (2026-11-08).
  *
- * The admin evaluation (the private record admin-evaluation-terra-2026-11-08 item 3) claimed both upload paths were
+ * The admin evaluation (private record admin-evaluation-<host>-2026-11-08, item 3) claimed both upload paths were
  * broken and that they did work before CSRF validation, and its own NOT RUN line admitted the multipart
  * reproduction had never been performed. This file performs it: a real `server.js`, a real login, a real
  * multipart body, and the two content directories the rest of the server reads from (`CTV_VIDEOS_DIR`,

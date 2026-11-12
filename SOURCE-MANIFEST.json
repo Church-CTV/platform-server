@@ -393,7 +393,7 @@
     },
     {
       "path": "tests/integration/test-admin-upload.mjs",
-      "sha256": "1d9720044ae980c35634c3958c081d4ac54164de7c88c56d1de9dd3ec82d5943"
+      "sha256": "c0b0754fc7f76bbde58ff4628de5f9f8c94acf2dede20f2a60afeee519fe83e1"
     },
     {
       "path": "tests/integration/test-billing-surface.mjs",
