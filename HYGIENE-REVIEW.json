@@ -1,23 +1,23 @@
 {
   "reviewVersion": 1,
-  "note": "Contextual reviews, not scanner suppression or publication approval. Changed files invalidate their reviews.",
+  "note": "Contextual reviews, not scanner suppression or publication approval. Changed files invalidate their reviews. Re-hashed 2026-11-12 for the pre-publication comment edits; each affected finding line was re-read and is unchanged (documentation and test addresses).",
   "entries": [
     {
       "path": "middleware/lanRestrict.js",
       "line": 43,
       "rule": "infrastructure-address",
-      "fileSha256": "12c178d381b31adbebd232e972675bdbfcab09515ac4ae4d1f3995169715451e",
+      "fileSha256": "dd4af3626194bceaca23b17b333ba348f516d0ba2edaa427d15a9f0c6b412134",
       "classification": "reviewed-synthetic-or-documentation",
-      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target.",
+      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target. | rehashed 2026-11-12: the file was edited for publication (comment/citation wording only); the reviewed line was re-read and is unchanged.",
       "reviewer": "Codex main-session content review"
     },
     {
       "path": "middleware/lanRestrict.js",
       "line": 142,
       "rule": "infrastructure-address",
-      "fileSha256": "12c178d381b31adbebd232e972675bdbfcab09515ac4ae4d1f3995169715451e",
+      "fileSha256": "dd4af3626194bceaca23b17b333ba348f516d0ba2edaa427d15a9f0c6b412134",
       "classification": "reviewed-synthetic-or-documentation",
-      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target.",
+      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target. | rehashed 2026-11-12: the file was edited for publication (comment/citation wording only); the reviewed line was re-read and is unchanged.",
       "reviewer": "Codex main-session content review"
     },
     {
@@ -141,153 +141,153 @@
       "path": "tests/unit/test-lanRestrictExposure.mjs",
       "line": 67,
       "rule": "infrastructure-address",
-      "fileSha256": "ba08d986bd73da0bd89acf131e294c891f95a2518be6688263f8151fb5812c62",
+      "fileSha256": "e5a5bf9d2bafb33559a74e41b688a048f6624255de38e45e64e930c08fb7b123",
       "classification": "reviewed-synthetic-or-documentation",
-      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target.",
+      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target. | rehashed 2026-11-12: the file was edited for publication (comment/citation wording only); the reviewed line was re-read and is unchanged.",
       "reviewer": "Codex main-session content review"
     },
     {
       "path": "tests/unit/test-lanRestrictExposure.mjs",
       "line": 73,
       "rule": "infrastructure-address",
-      "fileSha256": "ba08d986bd73da0bd89acf131e294c891f95a2518be6688263f8151fb5812c62",
+      "fileSha256": "e5a5bf9d2bafb33559a74e41b688a048f6624255de38e45e64e930c08fb7b123",
       "classification": "reviewed-synthetic-or-documentation",
-      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target.",
+      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target. | rehashed 2026-11-12: the file was edited for publication (comment/citation wording only); the reviewed line was re-read and is unchanged.",
       "reviewer": "Codex main-session content review"
     },
     {
       "path": "tests/unit/test-lanRestrictExposure.mjs",
       "line": 79,
       "rule": "infrastructure-address",
-      "fileSha256": "ba08d986bd73da0bd89acf131e294c891f95a2518be6688263f8151fb5812c62",
+      "fileSha256": "e5a5bf9d2bafb33559a74e41b688a048f6624255de38e45e64e930c08fb7b123",
       "classification": "reviewed-synthetic-or-documentation",
-      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target.",
+      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target. | rehashed 2026-11-12: the file was edited for publication (comment/citation wording only); the reviewed line was re-read and is unchanged.",
       "reviewer": "Codex main-session content review"
     },
     {
       "path": "tests/unit/test-lanRestrictExposure.mjs",
       "line": 84,
       "rule": "infrastructure-address",
-      "fileSha256": "ba08d986bd73da0bd89acf131e294c891f95a2518be6688263f8151fb5812c62",
+      "fileSha256": "e5a5bf9d2bafb33559a74e41b688a048f6624255de38e45e64e930c08fb7b123",
       "classification": "reviewed-synthetic-or-documentation",
-      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target.",
+      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target. | rehashed 2026-11-12: the file was edited for publication (comment/citation wording only); the reviewed line was re-read and is unchanged.",
       "reviewer": "Codex main-session content review"
     },
     {
       "path": "tests/unit/test-lanRestrictExposure.mjs",
       "line": 88,
       "rule": "infrastructure-address",
-      "fileSha256": "ba08d986bd73da0bd89acf131e294c891f95a2518be6688263f8151fb5812c62",
+      "fileSha256": "e5a5bf9d2bafb33559a74e41b688a048f6624255de38e45e64e930c08fb7b123",
       "classification": "reviewed-synthetic-or-documentation",
-      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target.",
+      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target. | rehashed 2026-11-12: the file was edited for publication (comment/citation wording only); the reviewed line was re-read and is unchanged.",
       "reviewer": "Codex main-session content review"
     },
     {
       "path": "tests/unit/test-lanRestrictExposure.mjs",
       "line": 89,
       "rule": "infrastructure-address",
-      "fileSha256": "ba08d986bd73da0bd89acf131e294c891f95a2518be6688263f8151fb5812c62",
+      "fileSha256": "e5a5bf9d2bafb33559a74e41b688a048f6624255de38e45e64e930c08fb7b123",
       "classification": "reviewed-synthetic-or-documentation",
-      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target.",
+      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target. | rehashed 2026-11-12: the file was edited for publication (comment/citation wording only); the reviewed line was re-read and is unchanged.",
       "reviewer": "Codex main-session content review"
     },
     {
       "path": "tests/unit/test-lanRestrictExposure.mjs",
       "line": 91,
       "rule": "infrastructure-address",
-      "fileSha256": "ba08d986bd73da0bd89acf131e294c891f95a2518be6688263f8151fb5812c62",
+      "fileSha256": "e5a5bf9d2bafb33559a74e41b688a048f6624255de38e45e64e930c08fb7b123",
       "classification": "reviewed-synthetic-or-documentation",
-      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target.",
+      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target. | rehashed 2026-11-12: the file was edited for publication (comment/citation wording only); the reviewed line was re-read and is unchanged.",
       "reviewer": "Codex main-session content review"
     },
     {
       "path": "tests/unit/test-lanRestrictExposure.mjs",
       "line": 100,
       "rule": "infrastructure-address",
-      "fileSha256": "ba08d986bd73da0bd89acf131e294c891f95a2518be6688263f8151fb5812c62",
+      "fileSha256": "e5a5bf9d2bafb33559a74e41b688a048f6624255de38e45e64e930c08fb7b123",
       "classification": "reviewed-synthetic-or-documentation",
-      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target.",
+      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target. | rehashed 2026-11-12: the file was edited for publication (comment/citation wording only); the reviewed line was re-read and is unchanged.",
       "reviewer": "Codex main-session content review"
     },
     {
       "path": "tests/unit/test-lanRestrictExposure.mjs",
       "line": 140,
       "rule": "infrastructure-address",
-      "fileSha256": "ba08d986bd73da0bd89acf131e294c891f95a2518be6688263f8151fb5812c62",
+      "fileSha256": "e5a5bf9d2bafb33559a74e41b688a048f6624255de38e45e64e930c08fb7b123",
       "classification": "reviewed-synthetic-or-documentation",
-      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target.",
+      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target. | rehashed 2026-11-12: the file was edited for publication (comment/citation wording only); the reviewed line was re-read and is unchanged.",
       "reviewer": "Codex main-session content review"
     },
     {
       "path": "tests/unit/test-lanRestrictExposure.mjs",
       "line": 144,
       "rule": "infrastructure-address",
-      "fileSha256": "ba08d986bd73da0bd89acf131e294c891f95a2518be6688263f8151fb5812c62",
+      "fileSha256": "e5a5bf9d2bafb33559a74e41b688a048f6624255de38e45e64e930c08fb7b123",
       "classification": "reviewed-synthetic-or-documentation",
-      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target.",
+      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target. | rehashed 2026-11-12: the file was edited for publication (comment/citation wording only); the reviewed line was re-read and is unchanged.",
       "reviewer": "Codex main-session content review"
     },
     {
       "path": "tests/unit/test-lanRestrictExposure.mjs",
       "line": 146,
       "rule": "infrastructure-address",
-      "fileSha256": "ba08d986bd73da0bd89acf131e294c891f95a2518be6688263f8151fb5812c62",
+      "fileSha256": "e5a5bf9d2bafb33559a74e41b688a048f6624255de38e45e64e930c08fb7b123",
       "classification": "reviewed-synthetic-or-documentation",
-      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target.",
+      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target. | rehashed 2026-11-12: the file was edited for publication (comment/citation wording only); the reviewed line was re-read and is unchanged.",
       "reviewer": "Codex main-session content review"
     },
     {
       "path": "tests/unit/test-lanRestrictExposure.mjs",
       "line": 157,
       "rule": "infrastructure-address",
-      "fileSha256": "ba08d986bd73da0bd89acf131e294c891f95a2518be6688263f8151fb5812c62",
+      "fileSha256": "e5a5bf9d2bafb33559a74e41b688a048f6624255de38e45e64e930c08fb7b123",
       "classification": "reviewed-synthetic-or-documentation",
-      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target.",
+      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target. | rehashed 2026-11-12: the file was edited for publication (comment/citation wording only); the reviewed line was re-read and is unchanged.",
       "reviewer": "Codex main-session content review"
     },
     {
       "path": "tests/unit/test-lanRestrictExposure.mjs",
       "line": 164,
       "rule": "infrastructure-address",
-      "fileSha256": "ba08d986bd73da0bd89acf131e294c891f95a2518be6688263f8151fb5812c62",
+      "fileSha256": "e5a5bf9d2bafb33559a74e41b688a048f6624255de38e45e64e930c08fb7b123",
       "classification": "reviewed-synthetic-or-documentation",
-      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target.",
+      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target. | rehashed 2026-11-12: the file was edited for publication (comment/citation wording only); the reviewed line was re-read and is unchanged.",
       "reviewer": "Codex main-session content review"
     },
     {
       "path": "tests/unit/test-lanRestrictExposure.mjs",
       "line": 230,
       "rule": "infrastructure-address",
-      "fileSha256": "ba08d986bd73da0bd89acf131e294c891f95a2518be6688263f8151fb5812c62",
+      "fileSha256": "e5a5bf9d2bafb33559a74e41b688a048f6624255de38e45e64e930c08fb7b123",
       "classification": "reviewed-synthetic-or-documentation",
-      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target.",
+      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target. | rehashed 2026-11-12: the file was edited for publication (comment/citation wording only); the reviewed line was re-read and is unchanged.",
       "reviewer": "Codex main-session content review"
     },
     {
       "path": "tests/unit/test-lanRestrictExposure.mjs",
       "line": 238,
       "rule": "infrastructure-address",
-      "fileSha256": "ba08d986bd73da0bd89acf131e294c891f95a2518be6688263f8151fb5812c62",
+      "fileSha256": "e5a5bf9d2bafb33559a74e41b688a048f6624255de38e45e64e930c08fb7b123",
       "classification": "reviewed-synthetic-or-documentation",
-      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target.",
+      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target. | rehashed 2026-11-12: the file was edited for publication (comment/citation wording only); the reviewed line was re-read and is unchanged.",
       "reviewer": "Codex main-session content review"
     },
     {
       "path": "tests/unit/test-lanRestrictExposure.mjs",
       "line": 243,
       "rule": "infrastructure-address",
-      "fileSha256": "ba08d986bd73da0bd89acf131e294c891f95a2518be6688263f8151fb5812c62",
+      "fileSha256": "e5a5bf9d2bafb33559a74e41b688a048f6624255de38e45e64e930c08fb7b123",
       "classification": "reviewed-synthetic-or-documentation",
-      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target.",
+      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target. | rehashed 2026-11-12: the file was edited for publication (comment/citation wording only); the reviewed line was re-read and is unchanged.",
       "reviewer": "Codex main-session content review"
     },
     {
       "path": "tests/unit/test-lanRestrictExposure.mjs",
       "line": 250,
       "rule": "infrastructure-address",
-      "fileSha256": "ba08d986bd73da0bd89acf131e294c891f95a2518be6688263f8151fb5812c62",
+      "fileSha256": "e5a5bf9d2bafb33559a74e41b688a048f6624255de38e45e64e930c08fb7b123",
       "classification": "reviewed-synthetic-or-documentation",
-      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target.",
+      "reason": "Generic network-policy documentation or synthetic allowlist/rate-limit fixture; not a deployment target. | rehashed 2026-11-12: the file was edited for publication (comment/citation wording only); the reviewed line was re-read and is unchanged.",
       "reviewer": "Codex main-session content review"
     },
     {
