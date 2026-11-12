@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Commercial licensing, self-hosting quotes and permission requests
+    url: mailto:dominick253@gmail.com?subject=Church%20CTV%20-%20licensing%20or%20permission%20request
+    about: Email the project owner. Public issues are the wrong place for money, contracts, customer names or anything you would rather keep private.
+  - name: Security report (not a public issue)
+    url: https://github.com/Church-CTV/.github/security/policy
+    about: Use the Report a vulnerability form on the Security tab, or email the owner and ask for a private channel. Never open a public issue for an unpatched problem.

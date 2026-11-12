@@ -1,0 +1,51 @@
+name: Question or help
+description: Ask how something works, or what a setting is for. Anyone may open an issue here.
+labels:
+  - question
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ask away. There is no fee, no approval step and no response-time promise
+        (see `SUPPORT.md`). Please do not paste credentials, private keys, member
+        data, customer names or an unpatched security problem into a public issue.
+  - type: input
+    id: platform
+    attributes:
+      label: Platform and version
+      description: Which application or service, and its version or commit
+      placeholder: for example roku-app 3e935c1, Roku OS 12.5, or platform-server c7f1767 on Node 22
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: What are you trying to do, and what did you expect to happen?
+      placeholder: I set CTV_CHANNEL_CONFIG to a generated config and the feed kept the previous channel name.
+    validations:
+      required: true
+  - type: textarea
+    id: what-tried
+    attributes:
+      label: What you already tried
+      description: Commands you ran, settings you changed, docs you read
+      value: |
+        1. 
+    validations:
+      required: false
+  - type: textarea
+    id: synthetic
+    attributes:
+      label: Synthetic config or feed excerpt
+      description: Optional, and please keep it synthetic; no member data, no credentials, no private hostnames
+      render: json
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirm
+      options:
+        - label: This issue contains no credentials, personal information, customer names or unpatched security details
+          required: true

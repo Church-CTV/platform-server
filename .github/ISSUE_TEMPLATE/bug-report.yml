@@ -1,0 +1,49 @@
+name: Bug report
+description: Something that should work and does not, on the source as published
+labels:
+  - bug
+body:
+  - type: input
+    id: revision
+    attributes:
+      label: Repository revision and platform
+      description: Commit or release, plus the device/OS or Node version
+      placeholder: for example 1ff5841, webOS 6.0 / Tizen 7.0 / Node 22.12
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction, with actual output
+      description: Exact commands or taps, the actual result, and the result you expected
+      value: |
+        Steps:
+        1. 
+        Actual: 
+        Expected: 
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs or test output
+      description: Paste the real output, trimmed to the relevant part; keep it synthetic
+      render: shell
+    validations:
+      required: false
+  - type: textarea
+    id: history
+    attributes:
+      label: Does an earlier revision work?
+      description: Name the revision if you know one
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirm
+      options:
+        - label: No credentials, personal information, customer names or unpatched security details are in this report
+          required: true
+        - label: This is a source-level bug, not a request to touch a live channel, device or store listing
+          required: true
