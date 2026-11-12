@@ -96,6 +96,14 @@ It is written in plain language; defined terms control.
     host, review, test and distribute those permitted binaries; they receive no
     independent right to operate, modify, resell or sublicense the platform.
 
+3.5 End users of a permitted build. A person who receives an application built
+    under section 3.1 or 3.4 may install and run that build on their own
+    devices, at no charge and without accepting this license in writing, to
+    watch that church's programming. The permission covers running the build as
+    distributed. It does not permit modifying or republishing the software,
+    reselling it, hosting the platform, or operating a channel of one's own, and
+    it conveys no right to the church's content (section 6.4).
+
                   4. CHURCH AGENTS AND INFRASTRUCTURE
 
 4.1 Employees, volunteers and independent contractors may install, host, maintain
@@ -143,9 +151,9 @@ It is written in plain language; defined terms control.
 
                 6. COMMERCIAL RESTRICTION AND RESERVED RIGHTS
 
-6.1 Except for the narrow church-agent, infrastructure, store and evaluation
-    exceptions stated above, this license grants no right to use Covered Software
-    commercially. Commercial use includes commercial self-hosting, commercial
+6.1 Except for the narrow church-agent, end-user, infrastructure, store and
+    evaluation exceptions stated above (sections 3.5, 4.1 to 4.3 and 5.1), this
+    license grants no right to use Covered Software commercially. Commercial use includes commercial self-hosting, commercial
     internal operations, resale, sublicensing, white-label or rebranded products,
     managed hosting, channel factories, and any service furnished to a third
     party for money or other economic benefit.

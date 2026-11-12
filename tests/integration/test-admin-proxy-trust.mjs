@@ -9,7 +9,7 @@
  * `TRUST_PROXY` environment variable, so the login lockout could key on the forwarded address while
  * `req.ip` - the address the LAN gate judges - stayed the proxy's. Two answers to one question.
  *
- * Booted twice, on ports handed over by `../tools/port-check.sh`: once with the switch on (the proxied
+ * Booted twice, on ports handed over by the project's port-check tooling: once with the switch on (the proxied
  * deployment) and once with it off (a directly-bound self-host box). Both behaviours are pinned, because
  * the dangerous one is the silent fail-open, not the refusal.
  */

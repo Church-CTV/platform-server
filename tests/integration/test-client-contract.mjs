@@ -11,7 +11,7 @@
  * Isolated by contract, not by habit (repository rule: "use isolated fixtures for tests that write
  * feed, metadata, database, or video files"). Measured 2026-11-09, before this was true: this file
  * rewrote the repository's own `output/roku_feed.json` on every run (`581f5928...` -> `de84a18e...`,
- * transcript `gates/evidence/2026-11-09-m0-isolation/red-00-repo-state-mutated.txt` in the project
+ * transcript the private evidence record red-00-repo-state-mutated in the project
  * certificate), read the deployment store `config.json` for its expectations, depended on
  * `Videos/*.mp4` artifacts another test happened to leave behind, and squatted on a fixed port (3999)
  * that a second thread running the same suite would collide with. A final test asserts the

@@ -325,7 +325,7 @@ test('a store the contract refuses stays refused, and the screen quotes the mach
     // the offending key, rather than serving the last accepted settings with a notice. The operator-facing
     // sentence promises the set-top box "keeps running the last settings that passed", which is true of the
     // copy the client already holds, not of this response. Whether a refused store should degrade instead of
-    // answer 400 is the same open decision as the unconfigured install (PLAN.md D-T1-2), so it is pinned
+    // answer 400 is the same open decision as the unconfigured install (the private plan of record D-T1-2), so it is pinned
     // here and left for the owner rather than decided in a test.
     const refused = await fetch(`${base}/api/v2/config`);
     const refusedBody = await refused.text();
@@ -371,7 +371,7 @@ test('the shipped default leaves the television without a config until the feed 
     // (`missing-required:content.sourceUrl`), and `/api/v2/config` answers 400 - so a fresh box hands a
     // television no config at all. The admin form has no field for that key either: the operator cannot fix
     // it from the screen that exists today. Whether 400 is the right answer, or a degraded config plus
-    // `configNotice`, is the owner's call (PLAN.md D-T1-2); this test pins whichever way the code goes, and
+    // `configNotice`, is the owner's call (the private plan of record D-T1-2); this test pins whichever way the code goes, and
     // today it says 400.
     const working = storeBytes();
     const shipped = JSON.parse(working);
@@ -400,7 +400,7 @@ test('the shipped default leaves the television without a config until the feed 
     );
     assert.ok(
         !/name="contentSourceUrl"/.test(screen.html),
-        'the config screen now has a feed-URL field - update this check and the D-T1-2 note in PLAN.md'
+        'the config screen now has a feed-URL field - update this check and the D-T1-2 note in the private plan of record'
     );
 
     writeFileSync(store, working);

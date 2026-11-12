@@ -9,7 +9,7 @@
  * calls the single biggest correctness risk, and the defect the M0 write path just fixed. This file
  * runs the real `server.js` on a free port with its own channel store, feed, media and analytics
  * database in a temporary directory: no shared stage (:3105 answers 000 and is the owner's call to
- * restart), no production write, no port hijacked (`tools/port-check.sh` before placement, and the
+ * restart), no production write, no port hijacked (the project's port-check tooling before placement, and the
  * harness itself refuses a taken port before spawning).
  */
 

@@ -2,7 +2,7 @@
  * LAN restriction for the operator surfaces (self-host exposure).
  *
  * Two things were wrong with this file when the admin design was written up (2026-11-08,
- * `DESIGN-admin-studio-2026-11-08.md` section 3, open item in `gates/t8-admin-groundwork-2026-11-08.md`
+ * the private admin-studio design record section 3, open item in the private record t8-admin-groundwork-2026-11-08
  * section 6): it was mounted nowhere, and its IPv6 branch returned `next()` unconditionally, so any IPv6
  * client reached the admin panel whatever `ALLOWED_NETWORKS` said. A dual-stack home router makes that the
  * normal case, not the exotic one. A third, smaller one: a request with no identifiable peer address threw a

@@ -2,6 +2,7 @@
   "formatVersion": 1,
   "platform": "server",
   "sourceRevision": "3443c60a6c0e6872b2acc5311a59c60f5dc3f564",
+  "sourceRevisionNote": "commit in the private origin repository, which is not published; it is provenance of the copied tree, not a link a public clone can resolve",
   "releaseStatus": "public-source-2026-11-12",
   "licenseStatus": "church-ctv-community-source-license-1.0-operative",
   "selfExcluded": true,
@@ -72,11 +73,11 @@
     },
     {
       "path": "LICENSE",
-      "sha256": "c4cabc7f62c3605a09bf406fd62cc231023af1c923ac47b8af3d57e69576d41c"
+      "sha256": "c19a53eebc3ab54c3cee3daff5429a8917afa53a5258e4a667c69fdd61352921"
     },
     {
       "path": "LICENSING-STATUS.md",
-      "sha256": "7317b92d6061f818aebaf8f01188197c836822b26990dcc5a0800d5f49179149"
+      "sha256": "b8039eb12e1411dec66d1dabf18fe97dbd87a6fb3b724b687b7f3bea2210323f"
     },
     {
       "path": "OMISSIONS.md",
@@ -88,7 +89,7 @@
     },
     {
       "path": "RELEASE-STATUS.md",
-      "sha256": "3edc2b26d468c4c4e1a09ee83e038a93c77670c68bd3550225f64e7d6d0457ed"
+      "sha256": "0959f03e27127b503195a3f66b3b00a39d0df2793ffc217de1cade1d23d97f62"
     },
     {
       "path": "RUNTIME-CONFIGURATION.md",
@@ -184,7 +185,7 @@
     },
     {
       "path": "lib/httpCache.js",
-      "sha256": "95551f56e96aad35445a3567eedfb47a3747eb6a73d57c3d612558f1a17c173e"
+      "sha256": "e2c34c2e937cd27e2210d236396e44cce2084a010d615087de9a87ce88a32f79"
     },
     {
       "path": "lib/publicDefaults.js",
@@ -240,7 +241,7 @@
     },
     {
       "path": "middleware/lanRestrict.js",
-      "sha256": "12c178d381b31adbebd232e972675bdbfcab09515ac4ae4d1f3995169715451e"
+      "sha256": "dd4af3626194bceaca23b17b333ba348f516d0ba2edaa427d15a9f0c6b412134"
     },
     {
       "path": "middleware/rateLimit.js",
@@ -280,7 +281,7 @@
     },
     {
       "path": "routes/v2.js",
-      "sha256": "6352e0b9ab84038d39796568948b07f60ca7f2fa56d6db8350bf3152cd1694e7"
+      "sha256": "cd8221f3eca4fc585afe559b7e39ec8faaa35308afbbad3aa0d632b7fb4a794a"
     },
     {
       "path": "schemas/ctv-config-v1.json",
@@ -372,7 +373,7 @@
     },
     {
       "path": "tests/integration/test-admin-config-form.mjs",
-      "sha256": "b31db736578736f460cb00f5751b112bfa70772e5e9638b2f06cc657aa2cb60c"
+      "sha256": "68be1ca79d153557dc337c0a26d3b7d78d7087d5dbf047bd11e08aef256c1fe6"
     },
     {
       "path": "tests/integration/test-admin-exposure.mjs",
@@ -388,11 +389,11 @@
     },
     {
       "path": "tests/integration/test-admin-proxy-trust.mjs",
-      "sha256": "636553db01ab1fb2cdc37e448fbb6a03773ebcb80aca982ee5a88da7d0136e50"
+      "sha256": "a2f5d7417bb10bb47ad70c03b0fd97526b1f93b6dbac50db7f0e449b2eabc3af"
     },
     {
       "path": "tests/integration/test-admin-upload.mjs",
-      "sha256": "c6ddf7b3528c571726d9095ac1c454d5ddf93866cdadaf24f51d11443edf7359"
+      "sha256": "1d9720044ae980c35634c3958c081d4ac54164de7c88c56d1de9dd3ec82d5943"
     },
     {
       "path": "tests/integration/test-billing-surface.mjs",
@@ -400,19 +401,19 @@
     },
     {
       "path": "tests/integration/test-cache-org-isolation.mjs",
-      "sha256": "9f9110d596c3549ab33b8e56508bc6704b6aa5dbcb0569d061b4fafd3183580c"
+      "sha256": "56825ee1ceda57fc5544ee05b4dac8bce70a164c2913f21c3dac130a3c55ef9b"
     },
     {
       "path": "tests/integration/test-cache-surface.mjs",
-      "sha256": "5691f3f3e41eeb78a8fe162be9d2c2b6c3207dc400c392b3d6dc44a9bf48dea3"
+      "sha256": "53f137f521c478569a1d756d10228537ba0ed081bbf17826b62235fa7ce101db"
     },
     {
       "path": "tests/integration/test-client-contract.mjs",
-      "sha256": "1069b157f215269ee9ab22e5cea69e40a44cc78d78d570f77f1f7d5092f3e9ff"
+      "sha256": "4e55bc4e8617f0941a0033fc6f1ab75f5cf05023d6b654e156162e0388f789ed"
     },
     {
       "path": "tests/integration/test-config-save-loop.mjs",
-      "sha256": "b2b2c9335e1dfa8962ecdefc14555e01375852e1ad433fe3810d38d44a620583"
+      "sha256": "a13b12fd7cd98cbc66305fdf6f638b104ada8d1ae9112ded5bb6e98937f41650"
     },
     {
       "path": "tests/integration/test-credential-warning.mjs",
@@ -468,7 +469,7 @@
     },
     {
       "path": "tests/unit/test-configStore-write-path.mjs",
-      "sha256": "b98e2a99747f7a3e934789baf840024e7702546c4252f0eba40c5ed4076e99a0"
+      "sha256": "f6608a837b316c20ccaf4a43b69e2d9bc376b659d78261f0542f4c139a8ec841"
     },
     {
       "path": "tests/unit/test-configStore.mjs",
@@ -508,7 +509,7 @@
     },
     {
       "path": "tests/unit/test-feed-envelope-version.mjs",
-      "sha256": "c55fe59b2aaba18ccbe48ea11f255136f3f7f2585067003b1a56651ed8b46419"
+      "sha256": "5a8ae2cb74519ccbc1e37163252e8a87e1e0008a24e37dc196af6323407891d3"
     },
     {
       "path": "tests/unit/test-feed-freshness.mjs",
@@ -532,7 +533,7 @@
     },
     {
       "path": "tests/unit/test-httpCache.mjs",
-      "sha256": "3c0b3ad91abb46f3f0321d811e39e09200db7e901605865977975d709595ea34"
+      "sha256": "887fd58fb1759d243bfcc7bab54d644983dfafb8b81b299211878944cb67f0d4"
     },
     {
       "path": "tests/unit/test-lanRestrict.mjs",
@@ -540,7 +541,7 @@
     },
     {
       "path": "tests/unit/test-lanRestrictExposure.mjs",
-      "sha256": "ba08d986bd73da0bd89acf131e294c891f95a2518be6688263f8151fb5812c62"
+      "sha256": "e5a5bf9d2bafb33559a74e41b688a048f6624255de38e45e64e930c08fb7b123"
     },
     {
       "path": "tests/unit/test-public-defaults.mjs",
@@ -584,7 +585,7 @@
     },
     {
       "path": "tests/unit/test-upload-formats.mjs",
-      "sha256": "da2e25250efb94beed3c32a0d784d2b02805b3d3ebcc43f09940dfe3bb946d1e"
+      "sha256": "51ac23fd0ef08f3204a200b5eb04ca145e520950da9078f0bd72e70d0e64f7a5"
     },
     {
       "path": "tests/unit/test-upload-limits.mjs",

@@ -5,7 +5,7 @@
  * already has the latest config, the server should return the appropriate cache response instead of the full
  * body... just have to check real quick, and if it isn't the newest, the backend will just send the new one,
  * so no lost time waiting to make another request". Measured on both live origins that model is half true
- * already (`gates/t2-feed-cache-surface-2026-11-09.md`): a matching `If-None-Match` answers `304 0 B` in 3 ms
+ * already (the private record t2-feed-cache-surface-2026-11-09): a matching `If-None-Match` answers `304 0 B` in 3 ms
  * where the `200` costs 79 ms, but only 0.4 % of requests carry a validator, **no path sends a freshness
  * policy at all**, nothing is compressed, and even a `304` re-reads, re-parses, re-validates and re-serializes
  * the whole document (`/api/v2/config`'s `304` is *slower* than its `200`: 14 ms against 12 ms).

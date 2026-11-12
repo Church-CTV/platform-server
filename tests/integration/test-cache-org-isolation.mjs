@@ -2,7 +2,7 @@
  * `CACHE-6`: two organizations on one edge must never share a cached body, and nothing in this design may
  * promise that without measuring it. The live topology is exactly this: two origins behind one Caddy, one
  * hostname each, and the edge stores nothing today (`via: 1.1 Caddy` with no `age`/`x-cache` on any response,
- * measured in `gates/t2-feed-cache-surface-2026-11-09.md`).
+ * measured in the private record t2-feed-cache-surface-2026-11-09).
  *
  * What makes cross-org leakage a real hazard rather than a theoretical one is that a validator here is a
  * content digest, and content is not always org-specific: two orgs can publish byte-identical feed files, and

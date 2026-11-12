@@ -1,8 +1,8 @@
 /**
  * lanRestrict: what it actually protects (2026-11-08).
  *
- * The exposure finding this file was written against (`DESIGN-admin-studio-2026-11-08.md` section 3,
- * repeated as an open M0 item in `gates/t8-admin-groundwork-2026-11-08.md` section 6): the middleware
+ * The exposure finding this file was written against (the private admin-studio design record section 3,
+ * repeated as an open M0 item in the private record t8-admin-groundwork-2026-11-08 section 6): the middleware
  * was defined and mounted nowhere, and its IPv6 branch returned `next()` unconditionally - so an IPv6
  * client was allowed regardless of what `ALLOWED_NETWORKS` said. A church box behind a dual-stack
  * router therefore has an admin panel that "LAN only" does not mean.

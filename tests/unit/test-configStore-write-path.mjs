@@ -7,7 +7,7 @@
  *    `lib/effectiveConfig.js` reads `process.env.CTV_CHANNEL_CONFIG`. A deployment that names its
  *    store - which is how the v2 integration harness and any self-host install do it - therefore had
  *    the admin panel writing a file the television never reads. That is the split-brain the design
- *    calls "the single biggest correctness risk" (`DESIGN-admin-studio-2026-11-08.md` section 5), and
+ *    calls "the single biggest correctness risk" (the private admin-studio design record section 5), and
  *    the read side landing (C135) did not close it.
  *  - `configStore.validateConfig` is permissive AND stale: it checks five feature flags
  *    (`continueWatching`, `offlineMode`, `sermonCategories`, `serviceSchedule`, `watchLater`) that the

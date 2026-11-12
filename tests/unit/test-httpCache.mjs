@@ -8,7 +8,7 @@ const require = createRequire(import.meta.url);
 /**
  * Unit coverage for the pieces of `lib/httpCache.js` that a full server cannot show cheaply: which path a
  * policy is keyed on, and what the table is allowed to contain. Found by measuring the stage 2026-11-10
- * (`gates/evidence/2026-11-09-cache-impl/stage-surface.txt` in the parent project): `/api/v2/search` answered
+ * (the private evidence record stage-surface in the parent project): `/api/v2/search` answered
  * `public, no-cache` although the design says a query-dependent answer is never storable, because the table
  * carried a `/search` row its own comment contradicted and a v2 forward rewrote the path the policy was
  * looked up with.

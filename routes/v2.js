@@ -307,7 +307,7 @@ router.use(apiRouter);
 // through to Express, whose default responder sends an HTML page with a stack trace naming the
 // server's install directory - to a television. Measured on the stage against the real example channel
 // configuration: `/api/v2/config` correctly answered a machine-readable 400
-// (`missing-required:content.sourceUrl`, see cert `gates/t8-admin-groundwork-2026-11-08.md` section 14)
+// (`missing-required:content.sourceUrl`, see cert the private record t8-admin-groundwork-2026-11-08 section 14)
 // while `/api/v2/feed`, same condition, answered 500 HTML. A contract refusal is now answered the way
 // the contract documents it, everywhere under `/api/v2`, and a client that asked for the v2 feed is
 // told where the document it wants actually lives.

@@ -13,7 +13,7 @@
  *
  * Not claimed here: whether a Roku or a Fire TV can *play* these containers. Nothing in this server checks
  * playability, and no device was involved in this measurement - that question is recorded NOT RUN in
- * certificate (`gates/t8-admin-groundwork-2026-11-08.md` §25 in the ctv project).
+ * certificate (the private record t8-admin-groundwork-2026-11-08 §25 in the ctv project).
  */
 
 import { test } from 'node:test';

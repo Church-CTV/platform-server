@@ -2,7 +2,7 @@
  * The frozen feed envelope needs a version, and the producer could not emit one.
  *
  * GATE T1's `feed-v1.md` requires a top-level `feedVersion: "1"`, and the owner-facing packet
- * (`config-v1.md` D-T1-5, `gates/t1-decision-sheet-2026-11-09.md`) says the order is emit first, enforce
+ * (`config-v1.md` D-T1-5, the private record t1-decision-sheet-2026-11-09) says the order is emit first, enforce
  * later, because a published Roku client collects only ARRAY-valued top-level keys as month rows
  * (`work/roku-channel-template/components/tasks/MainLoaderTask.brs:313-317`; the shipped Example app is
  * looser still at `:235-239`), so an additive string key is safe on the wire. Measured 2026-11-09 while

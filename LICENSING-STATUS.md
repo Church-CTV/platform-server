@@ -8,8 +8,10 @@ commercial license.
 What the license does: royalty-free self-hosting by an Eligible Church with no
 fee, subscription, channel cap or viewer cap; narrow agent and infrastructure
 exceptions so a church can hire ordinary technical help; a limited evaluation
-grant for everyone; no independent commercial operation, resale, white-label or
-competing managed hosting under the public grant; share-back of deployed
+grant for everyone; a free right for the people watching a church's channel to
+install and run a permitted build without paperwork (section 3.5); no independent
+commercial operation, resale, white-label or competing managed hosting under the
+public grant; share-back of deployed
 modifications; reserved commercial rights and paid services held by the owner.
 Eligibility, share-back mechanics, the patent clause and the dispute procedure
 are written out rather than left open.

@@ -1,11 +1,11 @@
 /**
  * The video/thumbnail upload path over real HTTP (2026-11-08).
  *
- * The admin evaluation (`gates/admin-evaluation-terra-2026-11-08.md` item 3) claimed both upload paths were
+ * The admin evaluation (the private record admin-evaluation-terra-2026-11-08 item 3) claimed both upload paths were
  * broken and that they did work before CSRF validation, and its own NOT RUN line admitted the multipart
  * reproduction had never been performed. This file performs it: a real `server.js`, a real login, a real
  * multipart body, and the two content directories the rest of the server reads from (`CTV_VIDEOS_DIR`,
- * `CTV_VIDEOS_METADATA`), on ports checked by `../tools/port-check.sh`.
+ * `CTV_VIDEOS_METADATA`), on ports checked by the project's port-check tooling.
  *
  * Repo state is treated as borrowed: `.admin_password_hash`, `videos.json`, `uploads/` and `Videos/` are
  * deployment state another test or thread may own, so the harness moves them aside and puts them back.
