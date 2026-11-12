@@ -73,7 +73,9 @@ It is written in plain language; defined terms control.
     modify and internally deploy Covered Software for its own congregational
     worship, religious teaching, communications, accessibility and related
     nonprofit ministry, including free public access to that congregation's own
-    programming through television and web applications.
+    programming through television and web applications. A body described in
+    section 2.1 may deploy Covered Software for the congregations it serves, and
+    each such congregation then uses it under that body's grant.
 
 3.2 There is no software license fee, no mandatory subscription, no channel cap,
     no viewer cap and no requirement to buy managed hosting. A church may run
@@ -96,21 +98,29 @@ It is written in plain language; defined terms control.
 
                   4. CHURCH AGENTS AND INFRASTRUCTURE
 
-4.1 Employees, volunteers and independent contractors may install, maintain or
-    customize an Eligible Church's instance solely as that church's agent, and
-    may be paid reasonable compensation for that work. The church is responsible
-    for its agents observing this license.
+4.1 Employees, volunteers and independent contractors may install, host, maintain
+    or customize an Eligible Church's own instance solely as that church's agent,
+    and may be paid reasonable compensation for that work, including running that
+    one congregation's instance on infrastructure the agent controls and charging
+    for that service. The church is responsible for its agents observing this
+    license.
 
 4.2 An agent receives no independent right to resell Covered Software, keep an
     independently exploitable platform, run a multitenant or white-label service
     for multiple customers from one church's eligibility, or reuse one church's
-    eligibility for another customer.
+    eligibility for another customer. The boundary is concrete: serving one
+    congregation, or the congregations of one body under section 2.1, is agent
+    work; serving several unrelated customers at a time, or marketing hosting as
+    the agent's own product, is a channel-hosting business under section 6.1 and
+    needs rights from the Licensor.
 
 4.3 Infrastructure and store vendors may charge their normal compute, storage,
     bandwidth, support and distribution fees without receiving commercial
     rights in Covered Software. These narrow exceptions do not authorize a
-    competing managed CTV or channel-hosting business, even one serving only
-    churches and even one charged at cost.
+    competing managed CTV or channel-hosting business: software that serves
+    several customers from a shared platform, or that is marketed as the
+    operator's own hosting product, needs separate rights from the Licensor -
+    even a service aimed only at churches, and even one charged at cost.
 
               5. EVALUATION, FORKS AND CONTRIBUTIONS
 
